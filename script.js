@@ -1,52 +1,39 @@
-// Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Navigation : Gestion du lien actif
     const links = document.querySelectorAll('.nav-links a');
 
     links.forEach(link => {
         link.addEventListener('click', function() {
-            // Retire la classe active de tous les onglets
             links.forEach(l => l.classList.remove('active'));
-            // Ajoute la classe au lien cliqué
             this.classList.add('active');
         });
     });
 
-    // Gestionnaire pour le formulaire
-    document.querySelector('.order-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Commande validée !');
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const plats = document.querySelectorAll('.plat-item');
-
-    const options = {
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
+    // 2. Formulaire : Gestion de la validation
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateX(0)';
-            observer.unobserve(entry.target);
+            const btn = this.querySelector('.btn-valider');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Envoi en cours...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert("Votre commande Africa Food a été envoyée avec succès !");
+                btn.innerText = originalText;
+                btn.disabled = false;
+                this.reset();
+            }, 1000);
         });
-    }, options);
+    }
 
-    plats.forEach(plat => {
-        // État initial pour l'animation
-        plat.style.opacity = '0';
-        plat.style.transform = 'translateY(20px)';
-        plat.style.transition = 'all 0.8s ease-out';
-        
-        observer.observe(plat);
-    });
-});
-
-
-// Petit script pour s'assurer de l'alignement si les images mettent du temps à charger
-window.addEventListener('load', () => {
-    console.log("Les témoignages sont prêts.");
+    // 3. Pied de page : Mise à jour automatique de l'année
+    const footerText = document.querySelector('.footer-bottom p');
+    if (footerText) {
+        const currentYear = new Date().getFullYear();
+        footerText.innerHTML = `&copy; ${currentYear} Tous droits réservés | Développé avec passion par Prosper`;
+    }
 });
