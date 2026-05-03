@@ -1,46 +1,402 @@
-// Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a');
+/* --- 1. VARIABLES ET RESET --- */
+:root {
+    --bg-color: #000000; /* Fond noir profond comme sur la maquette */
+    --text-primary: #FFFFFF; /* Texte blanc principal */
+    --accent-green: #7FFF00; /* Vert fluo pour le lien actif */
+    --accent-orange: #D35400; /* Orange brûlé pour les boutons */
+    --orange-hover: #E67E22; /* Orange plus clair au survol */
+    
+    /* Polices par défaut (à personnaliser) */
+    --font-heading: 'Arial Black', sans-serif; /* Pour le gros titre */
+    --font-body: 'Arial', sans-serif; /* Pour le texte */
+}
 
-    links.forEach(link => {
-        link.addEventListener('click', function() {
-            // Retire la classe active de tous les onglets
-            links.forEach(l => l.classList.remove('active'));
-            // Ajoute la classe au lien cliqué
-            this.classList.add('active');
-        });
-    });
+/* Reset simple */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    // Gestionnaire pour le formulaire
-    document.querySelector('.order-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Commande validée !');
-    });
-});
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden; /* Évite le défilement horizontal */
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    const plats = document.querySelectorAll('.plat-item');
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
 
-    const options = {
-        threshold: 0.2
-    };
+ul {
+    list-style: none;
+}
 
-    const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateX(0)';
-            observer.unobserve(entry.target);
-        });
-    }, options);
+h1, h2 {
+    font-family: var(--font-heading);
+}
 
-    plats.forEach(plat => {
-        // État initial pour l'animation
-        plat.style.opacity = '0';
-        plat.style.transform = 'translateY(20px)';
-        plat.style.transition = 'all 0.8s ease-out';
-        
-        observer.observe(plat);
-    });
-});
+/* --- 2. HEADER ET NAVIGATION --- */
+.site-header {
+    width: 100%;
+    position: absolute; /* Place la nav au-dessus du contenu héro */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Assure que la nav reste visible */
+    padding: 20px 0;
+    height: 80px; /* Ajout pour éviter chevauchement */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center; /* Centre les liens horizontalement */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Espace entre chaque lien */
+    font-weight: bold; 
+    
+}
+
+.nav-links a {
+    font-size: 1.1rem;
+    color: rgba(242, 244, 239, 0.97); /* Blanc légèrement transparent par défaut */
+    background-color: #e5770a;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: var(--orange-hover);
+}
+
+.nav-links a.active {
+    background-color: var(--accent-green);
+    color: #000000;
+}
+
+
+/* --- 3. SECTION HÉRO (ACCUEIL) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    display: flex;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
+    text-align: center;
+    padding-top: 120px; /* Ajusté pour éviter chevauchement */
+}
+
+/* Conteneur pour ton image */
+.hero-bg-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place le conteneur derrière le texte */
+}
+
+/* Une fois que tu auras ton image, applique ce style */
+.hero-image {
+    width: 90%;
+    height: 100%;
+    object-fit: cover; /* L'image s'adapte sans se déformer */
+    object-position: center; /* Centre l'image */
+}
+
+/* Contenu textuel */
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 5rem; /* Très gros titre comme sur la maquette */
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Légère ombre pour la lisibilité */
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Boutons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espace entre les boutons */
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px; /* Légers arrondis */
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 2px solid var(--accent-orange); /* Bordure orange */
+}
+.btn-primary:hover {
+    background-color: var(--accent-orange);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-green); /* Bordure verte pour différencier */
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-green);
+}
+
+/* Conteneurs globaux */
+.section-container {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+/* Alignement horizontal (Galerie & Témoignages) */
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card, .testimonial {
+    display: flex;
+    align-items: center; /* Aligne verticalement l'image et le texte */
+    gap: 30px;
+    text-align: left;
+}
+
+.card img, .testimonial img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-info h3, .testi-text h4 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+}
+
+/* Style du Formula.site-header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px 0;
+    height: 80px; /* Hauteur fixe pour éviter le chevauchement */
+
+
+.order-form input, .order-form select {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e0e0e0; /* Couleur grise des champs */
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    background-color: #d35400;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Styles pour la Galerie */
+.container-galerie {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.titre-galerie {
+    color: #7FFF00;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.liste-plats {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.plat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.image-container {
+    flex: 0 0 35%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.texte-container {
+    flex: 1;
+}
+
+.texte-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.texte-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .plat-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .image-container {
+        width: 100%;
+    }
+    .image-container img {
+        height: 200px;
+    }
+}
+
+/* Styles Communs */
+.section-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+
+
+
+.section-temoignages {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.titre-principal {
+     color: #7FFF00;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+.conteneur-temoignages {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.carte-temoignage {
+    display: flex;
+    align-items: flex-start; /* Aligne le haut de l'image avec le haut du texte */
+    gap: 30px;
+}
+
+.zone-image {
+    flex: 0 0 200px; /* Largeur fixe pour l'image comme sur la capture */
+}
+
+.zone-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Coins arrondis légers */
+    display: block;
+}
+
+.zone-texte {
+    flex: 1;
+}
+
+.zone-texte h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.zone-texte p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #efeaea;
+    margin: 0;
+}
+
+/* Version Mobile */
+@media (max-width: 650px) {
+    .carte-temoignage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .zone-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
