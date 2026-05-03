@@ -311,3 +311,92 @@ h1, h2 {
         height: 200px;
     }
 }
+
+/* Styles Communs */
+.section-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+
+
+
+.section-temoignages {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.titre-principal {
+     color: #7FFF00;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+.conteneur-temoignages {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.carte-temoignage {
+    display: flex;
+    align-items: flex-start; /* Aligne le haut de l'image avec le haut du texte */
+    gap: 30px;
+}
+
+.zone-image {
+    flex: 0 0 200px; /* Largeur fixe pour l'image comme sur la capture */
+}
+
+.zone-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Coins arrondis légers */
+    display: block;
+}
+
+.zone-texte {
+    flex: 1;
+}
+
+.zone-texte h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.zone-texte p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #efeaea;
+    margin: 0;
+}
+
+/* Version Mobile */
+@media (max-width: 650px) {
+    .carte-temoignage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .zone-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
