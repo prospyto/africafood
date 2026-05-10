@@ -12,8 +12,8 @@
     <header class="site-header">
         <nav class="main-nav">
             <ul class="nav-links">
-                <li><a href="#accueil" class="nav-item">Accueil</a></li>
-                <li><a href="#" class="nav-item" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
+                <li><a href="#accueil" class="nav-btn active">Accueil</a></li>
+                <li><a href="#" class="nav-btn" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
                 <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#reservation">Réservation</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -24,13 +24,13 @@
     <main>
         <section id="accueil" class="hero-section">
             <div class="hero-bg-container">
-                <img src="image1.webp" alt="Background Africa Food" class="hero-image">
+                <img src="image1.webp" alt="Background" class="hero-image">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">AFRICA FOOD</h1>
                 <p class="hero-subtitle">L'authenticité des saveurs africaines.<br>Un voyage culinaire au cœur de la tradition.</p>
                 <div class="hero-buttons">
-                    <a href="#reservation" class="btn-action">Réserver</a>
+                    <a href="#reservation" class="btn-main">Réserver une table</a>
                     <button class="btn-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</button>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="texte-box">
                         <h3>Spaghetti Africana</h3>
-                        <p>Sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
+                        <p>Spaghetti sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
                     </div>
                 </article>
 
@@ -57,43 +57,36 @@
                     </div>
                     <div class="texte-box">
                         <h3>Alloco Traditionnel</h3>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec sauce maison.</p>
+                        <p>Bananes plantains frites, dorées et fondantes, servies avec une petite sauce pimentée.</p>
+                    </div>
+                </article>
+
+                <article class="plat-item">
+                    <div class="image-box">
+                        <img src="ima4.webp" alt="Jollof Rice">
+                        <div class="prix-badge">4500<span>F</span></div>
+                    </div>
+                    <div class="texte-box">
+                        <h3>Jollof Rice</h3>
+                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée, servi avec son poulet rôti.</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section id="temoignages" class="section-temoignages">
-            <h2 class="titre-section">TÉMOIGNAGES</h2>
-            <div id="carouselT" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner text-center">
-                    <div class="carousel-item active">
-                        <img src="ima5.webp" class="img-temoin" alt="Sara">
-                        <h4>Sara Figa</h4>
-                        <p>"Une explosion de saveurs ! Le mélange d'épices est parfait."</p>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="ima6.webp" class="img-temoin" alt="Imma">
-                        <h4>Imma Tita</h4>
-                        <p>"Le cadre est magnifique et le service est impeccable."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="reservation" class="container-formulaire">
             <h2 class="titre-section">RÉSERVATION & COMMANDE</h2>
-            <form class="form-style">
-                <div class="input-row">
+            <form class="form-style" id="main-booking-form">
+                <div class="form-row">
                     <input type="text" placeholder="Nom et Prénom" required>
-                    <input type="email" placeholder="Votre Email (Requis)" required>
+                    <input type="email" placeholder="Votre Email (Obligatoire)" required>
                 </div>
-                <div class="input-row">
+                <div class="form-row">
                     <input type="tel" placeholder="Téléphone / Paiement" required>
-                    <input type="number" placeholder="Nombre de personnes" min="1">
+                    <input type="text" placeholder="Adresse de livraison" required>
                 </div>
-                <textarea id="comm-details" placeholder="Détails de votre commande (choisissez dans le menu)..." class="full-width"></textarea>
-                <button type="submit" class="btn-valider">VALIDER MA DEMANDE</button>
+                <textarea id="order-field" placeholder="Détails de la commande (choisissez dans le menu)..." class="full-width"></textarea>
+                <button type="submit" class="btn-submit">VALIDER MA COMMANDE</button>
             </form>
         </section>
 
@@ -101,17 +94,12 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Africa Food</h3>
-                    <p>L'excellence culinaire africaine à votre table.</p>
+                    <p>Une expérience authentique.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Contact</h3>
                     <p>📍 Cotonou, Bénin</p>
                     <p>📞 +229 00 00 00 00</p>
-                    <p>✉️ contact@africafood.bj</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Réseaux</h3>
-                    <p>Facebook | Instagram | LinkedIn</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -122,34 +110,33 @@
 
     <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-dark">
-                <div class="modal-header bg-dark text-white border-0">
-                    <h5 class="modal-title">FAITES VOTRE CHOIX</h5>
+            <div class="modal-content bg-dark text-white border border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-orange">VOTRE MENU</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <h6 class="fw-bold border-bottom pb-2">NOS PLATS</h6>
-                    <div class="d-flex justify-content-between mb-2">
-                        <label><input type="checkbox" class="order-check" value="Spaghetti Africana"> Spaghetti Africana</label>
-                        <span>3500F</span>
+                    <h6 class="text-secondary small mb-3">SÉLECTIONNEZ VOS PLATS</h6>
+                    <div class="menu-choice">
+                        <label><input type="checkbox" class="chk-plat" value="Spaghetti Africana"> Spaghetti Africana</label>
+                        <span class="price">3500F</span>
                     </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <label><input type="checkbox" class="order-check" value="Alloco Traditionnel"> Alloco Traditionnel</label>
-                        <span>2000F</span>
+                    <div class="menu-choice">
+                        <label><input type="checkbox" class="chk-plat" value="Alloco Traditionnel"> Alloco Traditionnel</label>
+                        <span class="price">2000F</span>
                     </div>
-
-                    <h6 class="fw-bold border-bottom pb-2 mt-4">BOISSONS & PLUS</h6>
-                    <div class="d-flex justify-content-between mb-2">
-                        <label><input type="checkbox" class="order-check" value="Bissap Glacé"> Bissap Glacé</label>
-                        <span>1000F</span>
+                    <div class="menu-choice">
+                        <label><input type="checkbox" class="chk-plat" value="Jollof Rice"> Jollof Rice</label>
+                        <span class="price">4500F</span>
                     </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <label><input type="checkbox" class="order-check" value="Dèguè Artisanal"> Dèguè Artisanal</label>
-                        <span>1500F</span>
+                    <h6 class="text-secondary small mt-4 mb-3">BOISSONS</h6>
+                    <div class="menu-choice">
+                        <label><input type="checkbox" class="chk-plat" value="Bissap Glacé"> Bissap Glacé</label>
+                        <span class="price">1000F</span>
                     </div>
                 </div>
-                <div class="modal-footer border-0">
-                    <button class="btn btn-dark w-100" onclick="updateOrder()" data-bs-dismiss="modal">Ajouter à la commande</button>
+                <div class="modal-footer border-secondary">
+                    <button class="btn-confirm-pop w-100" onclick="processOrder()" data-bs-dismiss="modal">Valider et remplir les infos</button>
                 </div>
             </div>
         </div>
@@ -157,12 +144,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function updateOrder() {
+        function processOrder() {
             let selected = [];
-            document.querySelectorAll('.order-check:checked').forEach(box => {
-                selected.push(box.value);
-            });
-            document.getElementById('comm-details').value = "Je souhaite commander : " + selected.join(', ');
+            document.querySelectorAll('.chk-plat:checked').forEach(el => selected.push(el.value));
+            
+            if (selected.length > 0) {
+                // Remplit le champ commande
+                document.getElementById('order-field').value = "Commande : " + selected.join(', ');
+                // Dirige vers le formulaire
+                document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
