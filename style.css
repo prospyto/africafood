@@ -61,71 +61,113 @@ body {
 }
 
 /* --- HERO SECTION --- */
-.hero-section {
-    height: 98vh;
-    position: relative;
+/* --- HEADER PREMIUM --- */
+.site-header {
+    width: 100%;
+    height: 85px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px); /* Effet flou moderne */
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 2000;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    border-bottom: 2px solid var(--orange);
 }
 
-.hero-bg-container {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-}
-
-.hero-image {
+.header-container {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Pas de déformation */
-    opacity: 0.5;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-}
-
-.hero-buttons {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 25px;
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.btn-main {
+/* Style du Logo */
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.logo-africa { color: white; }
+.logo-food { color: var(--orange); }
+
+/* Navigation centrée */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--orange);
+    transition: 0.3s;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--orange) !important;
+}
+
+/* Bouton à droite */
+.btn-menu-pop {
     background: var(--orange);
     color: white;
-    padding: 14px 28px;
-    border-radius: 5px;
-    font-weight: bold;
     border: none;
-    transition: 0.3s;
-}
-
-.btn-outline {
-    background: transparent;
-    color: white;
-    padding: 14px 28px;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
-    border: 2px solid var(--orange);
+    font-size: 0.8rem;
+    cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
 }
 
-.btn-main:hover, .btn-outline:hover {
+.btn-menu-pop:hover {
     background: var(--orange-clair);
-    border-color: var(--orange-clair);
+    transform: scale(1.05);
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .site-header {
+        height: auto;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+    .header-action {
+        margin-top: 5px;
+    }
 }
 
 /* --- GALERIE PLATS --- */
