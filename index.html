@@ -1,174 +1,77 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Food - L'authenticité des saveurs</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<header class="hero-section d-flex align-items-center text-center text-white">
+    <div class="container">
+        <h1>Nom du Restaurant</h1>
+        <p class="lead">Un slogan accrocheur pour votre cuisine</p>
+        <div class="mt-4">
+            <button class="btn btn-primary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#menuModal">Passer une commande</button>
+            <a href="#reservation" class="btn btn-outline-light btn-lg m-2">Réserver une table</a>
+        </div>
+    </div>
+</header>
 
-    <header class="site-header">
-        <nav class="main-nav">
-            <ul class="nav-links">
-                <li><a href="#accueil" class="active">Accueil</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#temoignages">Témoignages</a></li>
-                <li><a href="#reservation">Réservation</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="accueil" class="hero-section">
-            <div class="hero-bg-container">
-                <img src="image1.webp" alt="Plat de présentation Africa Food" class="hero-image" loading="eager">
+<div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Notre Menu Spécial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <div class="hero-content">
-                <h1 class="hero-title">AFRICA FOOD</h1>
-                <p class="hero-subtitle">
-                    L'authenticité des saveurs africaines.<br>
-                    Un voyage culinaire au cœur de la tradition.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#reservation" class="btn btn-primary">Réserver une table</a>
-                    <a href="#reservation" class="btn btn-primary">Commander</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="galerie" class="container-galerie">
-            <h1 class="titre-galerie">GALERIE</h1>
-
-            <div class="liste-plats">
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima2.webp" alt="Spaghetti Africana" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Spaghetti Africana</h2>
-                        <p>Spaghetti sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
-                    </div>
-                </article>
-
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima3.webp" alt="Alloco Traditionnel" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Alloco Traditionnel</h2>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec une petite sauce pimentée.</p>
-                    </div>
-                </article>
-
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima4.webp" alt="Jollof Rice" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Jollof Rice</h2>
-                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée, servi avec son poulet rôti.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="temoignages" class="section-temoignages">
-            <h1 class="titre-principal">TÉMOIGNAGES</h1>
-
-            <div class="conteneur-temoignages">
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima5.webp" alt="Portrait de Sara Figa" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
-                        <h3>Sara Figa</h3>
-                        <p>"Une explosion de saveurs ! Le mélange d'épices est parfaitement dosé, on sent vraiment le goût du pays."</p>
-                    </div>
-                </div>
-
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima6.webp" alt="Portrait de Imma Tita" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
-                        <h3>Imma Tita</h3>
-                        <p>"Le cadre est magnifique et le service est impeccable. C'est devenu ma cantine préférée pour mes déjeuners d'affaires."</p>
-                    </div>
-                </div>
-
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima7.webp" alt="Portrait de Daniel Yov" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
-                        <h3>Daniel Yov</h3>
-                        <p>"Enfin un restaurant qui respecte les recettes traditionnelles avec une touche de modernité. Les beignets sont excellents."</p>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <img src="plat1.jpg" class="img-fluid rounded mb-2" alt="Plat">
+                        <h6>Poulet Yassa — 4500 FCFA</h6>
+                        <p class="small text-muted">Mariné au citron et oignons caramélisés.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</div>
 
-        <section id="reservation" class="container-formulaire">
-            <h1 class="titre-formulaire">RÉSERVATION</h1>
-            
-            <form id="booking-form" class="form-style">
-                <div class="input-group">
-                    <input type="text" placeholder="Entrez votre nom et prénom" required>
-                </div>
-                
-                <div class="input-group">
-                    <select required>
-                        <option value="" disabled selected>Sélectionnez un menu</option>
-                        <option value="spaghetti">Spaghetti Africana</option>
-                        <option value="alloco">Alloco Traditionnel</option>
-                        <option value="jollof">Jollof Rice</option>
-                    </select>
-                </div>
+<section class="container py-5">
+    <h2 class="text-center mb-4">Galerie</h2>
+    <div class="row g-3">
+        <div class="col-6 col-md-4"><img src="img1.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+        <div class="col-6 col-md-4"><img src="img2.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+        <div class="col-6 col-md-4"><img src="img3.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+        <div class="col-6 col-md-4"><img src="img4.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+        <div class="col-6 col-md-4"><img src="img5.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+        <div class="col-6 col-md-4"><img src="img6.jpg" class="img-fluid rounded" alt="Restaurant"></div>
+    </div>
+</section>
 
-                <div class="input-group">
-                    <input type="text" placeholder="Adresse de livraison" required>
+<section class="bg-light py-5">
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+                <img src="user1.jpg" class="rounded-circle mb-3" width="80" alt="Client">
+                <h5>Jean Dupont</h5>
+                <p>"Une expérience culinaire inoubliable !"</p>
+            </div>
+            </div>
+    </div>
+</section>
+
+<section id="reservation" class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Réserver une table</h2>
+            <form id="reservationForm" class="mt-4">
+                <input type="text" class="form-control mb-3" placeholder="Nom et Prénom" required>
+                <div class="row">
+                    <div class="col-md-6"><input type="date" class="form-control mb-3" required></div>
+                    <div class="col-md-6"><input type="time" class="form-control mb-3" required></div>
                 </div>
-                
-                <div class="input-group">
-                    <input type="tel" placeholder="Numéro de téléphone / Paiement" required>
-                </div>
-                
-                <button type="submit" class="btn-valider">Valider la commande</button>
+                <input type="number" class="form-control mb-3" placeholder="Nombre de personnes" required>
+                <textarea class="form-control mb-3" placeholder="Commentaires ou demandes spéciales"></textarea>
+                <button type="submit" class="btn btn-success w-100">Confirmer la réservation</button>
             </form>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <footer id="contact" class="footer-restaurant">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Notre Restaurant</h3>
-                    <p>Une expérience culinaire authentique au cœur de la tradition africaine.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
-                        <li><a href="#reservation">Réservation</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Cotonou, Bénin</p>
-                    <p>Tél : +229 00 00 00 00</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-               <p>&copy; 2026 Tous droits réservés | Développé avec passion par <strong>Prospère </strong></p>
-            </div>
-        </footer>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<footer class="bg-dark text-white py-4 text-center">
+    <p>Appelez-nous : <a href="tel:+22900000000" class="text-white decoration-none">+229 XX XX XX XX</a></p>
+    <p>Email : <a href="mailto:contact@africafood.com" class="text-white decoration-none">contact@africafood.com</a></p>
+</footer>
