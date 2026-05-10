@@ -14,6 +14,7 @@
             <ul class="nav-links">
                 <li><a href="#accueil" class="active">Accueil</a></li>
                 <li><a href="#" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
+                <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#temoignages">Témoignages</a></li>
                 <li><a href="#reservation">Réservation</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -24,161 +25,117 @@
     <main>
         <section id="accueil" class="hero-section">
             <div class="hero-bg-container">
-                <img src="image1.webp" alt="Plat de présentation Africa Food" class="hero-image" loading="eager">
+                <img src="image1.webp" alt="Intérieur Africa Food" class="hero-image">
             </div>
-
-            <div class="hero-content">
+            <div class="hero-content text-center">
                 <h1 class="hero-title">AFRICA FOOD</h1>
-                <p class="hero-subtitle">
-                    L'authenticité des saveurs africaines.<br>
-                    Un voyage culinaire au cœur de la tradition.
-                </p>
+                <p class="hero-subtitle">L'authenticité des saveurs africaines. Un voyage culinaire au cœur de la tradition.</p>
                 <div class="hero-buttons">
                     <a href="#reservation" class="btn btn-primary">Réserver une table</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</a>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#menuModal">Passer une commande</a>
                 </div>
             </div>
         </section>
 
-        <section id="galerie" class="container-galerie">
-            <h1 class="titre-galerie">GALERIE</h1>
-
-            <div class="liste-plats">
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima2.webp" alt="Spaghetti Africana" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Spaghetti Africana</h2>
-                        <p>Spaghetti sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
-                    </div>
-                </article>
-
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima3.webp" alt="Alloco Traditionnel" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Alloco Traditionnel</h2>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec une petite sauce pimentée.</p>
-                    </div>
-                </article>
-
-                <article class="plat-item">
-                    <div class="image-container">
-                        <img src="ima4.webp" alt="Jollof Rice" loading="lazy">
-                    </div>
-                    <div class="texte-container">
-                        <h2>Jollof Rice</h2>
-                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée, servi avec son poulet rôti.</p>
-                    </div>
-                </article>
+        <section id="galerie" class="container py-5">
+            <h1 class="text-center mb-5">GALERIE</h1>
+            <div class="row g-3">
+                <div class="col-6 col-md-4"><img src="ima2.webp" class="img-fluid rounded" alt="Plat 1"></div>
+                <div class="col-6 col-md-4"><img src="ima3.webp" class="img-fluid rounded" alt="Plat 2"></div>
+                <div class="col-6 col-md-4"><img src="ima4.webp" class="img-fluid rounded" alt="Intérieur"></div>
+                <div class="col-6 col-md-4"><img src="ima2.webp" class="img-fluid rounded" alt="Équipe"></div>
+                <div class="col-6 col-md-4"><img src="ima3.webp" class="img-fluid rounded" alt="Plat 3"></div>
+                <div class="col-6 col-md-4"><img src="ima4.webp" class="img-fluid rounded" alt="Plat 4"></div>
             </div>
         </section>
 
-        <section id="temoignages" class="section-temoignages">
-            <h1 class="titre-principal">TÉMOIGNAGES</h1>
-
-            <div class="conteneur-temoignages">
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima5.webp" alt="Portrait de Sara Figa" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
+        <section id="temoignages" class="py-5 bg-light">
+            <h1 class="text-center mb-4">TÉMOIGNAGES</h1>
+            <div id="carouselTemoignages" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="ima5.webp" class="rounded-circle mb-3" width="100" alt="Sara Figa">
                         <h3>Sara Figa</h3>
-                        <p>"Une explosion de saveurs ! Le mélange d'épices est parfaitement dosé, on sent vraiment le goût du pays."</p>
+                        <p class="px-5">"Une explosion de saveurs ! Le mélange d'épices est parfaitement dosé."</p>
                     </div>
-                </div>
-
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima6.webp" alt="Portrait de Imma Tita" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
+                    <div class="carousel-item">
+                        <img src="ima6.webp" class="rounded-circle mb-3" width="100" alt="Imma Tita">
                         <h3>Imma Tita</h3>
-                        <p>"Le cadre est magnifique et le service est impeccable. C'est devenu ma cantine préférée pour mes déjeuners d'affaires."</p>
+                        <p class="px-5">"Le cadre est magnifique et le service est impeccable. Ma cantine préférée."</p>
                     </div>
-                </div>
-
-                <div class="carte-temoignage">
-                    <div class="zone-image">
-                        <img src="ima7.webp" alt="Portrait de Daniel Yov" loading="lazy">
-                    </div>
-                    <div class="zone-texte">
+                    <div class="carousel-item">
+                        <img src="ima7.webp" alt="Daniel Yov" class="rounded-circle mb-3" width="100">
                         <h3>Daniel Yov</h3>
-                        <p>"Enfin un restaurant qui respecte les recettes traditionnelles avec une touche de modernité. Les beignets sont excellents."</p>
+                        <p class="px-5">"Enfin un restaurant qui respecte les recettes traditionnelles avec modernité."</p>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTemoignages" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTemoignages" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+                </button>
             </div>
         </section>
 
-        <section id="reservation" class="container-formulaire">
-            <h1 class="titre-formulaire">RÉSERVATION</h1>
-            
-            <form id="booking-form" class="form-style">
-                <div class="input-group">
-                    <input type="text" placeholder="Entrez votre nom et prénom" required>
-                </div>
-                
-                <div class="input-group">
-                    <input type="datetime-local" title="Date et heure de réservation" required>
-                </div>
-
-                <div class="input-group">
-                    <input type="number" placeholder="Nombre de personnes" min="1" required>
-                </div>
-
-                <div class="input-group">
-                    <input type="tel" placeholder="Numéro de téléphone" required>
-                </div>
-                
-                <button type="submit" class="btn-valider">Confirmer la réservation</button>
-            </form>
-        </section>
-
-        <footer id="contact" class="footer-restaurant">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Notre Restaurant</h3>
-                    <p>Une expérience culinaire authentique au cœur de la tradition africaine.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
-                        <li><a href="#reservation">Réservation</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Cotonou, Bénin</p>
-                    <p>Tél : <a href="tel:+22900000000" style="color:inherit; text-decoration:none;">+229 00 00 00 00</a></p>
+        <section id="reservation" class="container py-5">
+            <h1 class="text-center mb-4">RÉSERVATION / COMMANDE</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="booking-form" class="p-4 border rounded shadow-sm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Nom et prénom" required></div>
+                            <div class="col-md-6 mb-3"><input type="datetime-local" class="form-control" required title="Date et heure"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3"><input type="number" class="form-control" placeholder="Nombre de personnes" required></div>
+                            <div class="col-md-6 mb-3"><input type="tel" class="form-control" placeholder="Votre Téléphone" required></div>
+                        </div>
+                        <div class="mb-3"><input type="email" class="form-control" placeholder="Votre Email" required></div>
+                        <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Commentaires ou demandes spéciales (Allergies, etc.)"></textarea></div>
+                        <button type="submit" class="btn btn-success w-100">Soumettre ma demande</button>
+                    </form>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-               <p>&copy; 2026 Tous droits réservés | Développé avec passion par <strong>Prospère</strong></p>
+        </section>
+
+        <footer id="contact" class="bg-dark text-white pt-5 pb-3">
+            <div class="container text-center text-md-start">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h3>Notre Restaurant</h3>
+                        <p>Cotonou, Bénin (Votre adresse ici)</p>
+                        <p>Tél : <a href="tel:+22900000000" class="text-white decoration-none">+229 00 00 00 00</a></p>
+                        <p>Email : <a href="mailto:prospere@example.com" class="text-white decoration-none">prospere@example.com</a></p>
+                    </div>
+                    <div class="col-md-4 mb-4 text-center">
+                        <h3>Réseaux Sociaux</h3>
+                        <a href="#" class="text-white me-3">Facebook</a>
+                        <a href="#" class="text-white me-3">Instagram</a>
+                        <a href="#" class="text-white">LinkedIn</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h3>Mentions Légales</h3>
+                        <p class="small text-muted">Politique de confidentialité<br>&copy; 2026 Africa Food. Par Prospère.</p>
+                    </div>
+                </div>
             </div>
         </footer>
     </main>
 
-    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content text-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="menuModalLabel">Notre Carte Africaine</h5>
+                    <h5 class="modal-title">NOTRE CARTE AFRICAINE</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body text-center">
-                    <p>Découvrez nos spécialités maison :</p>
-                    <ul class="list-unstyled">
-                        <li><strong>Spaghetti Africana</strong> - Sauce légumes & viande braisée</li>
-                        <li><strong>Alloco Traditionnel</strong> - Plantains frites</li>
-                        <li><strong>Jollof Rice</strong> - Riz mijoté & poulet rôti</li>
-                    </ul>
+                <div class="modal-body">
+                    <div class="row text-center">
+                        <div class="col-md-4"><img src="ima2.webp" class="img-fluid rounded mb-2"><h6>Spaghetti — 3500F</h6></div>
+                        <div class="col-md-4"><img src="ima3.webp" class="img-fluid rounded mb-2"><h6>Alloco — 2000F</h6></div>
+                        <div class="col-md-4"><img src="ima4.webp" class="img-fluid rounded mb-2"><h6>Jollof Rice — 4500F</h6></div>
+                    </div>
                 </div>
             </div>
         </div>
