@@ -5,447 +5,89 @@
     --accent-orange: #D35400; 
     --orange-hover: #E67E22;
     --font-heading: 'Arial Black', sans-serif;
-    --font-body: 'Arial', sans-serif;
 }
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    font-family: var(--font-body);
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-ul {
-    list-style: none;
-}
-
-h1, h2 {
-    font-family: var(--font-heading);
-}
-
-/* --- 2. HEADER ET NAVIGATION --- */
+/* --- 2. HEADER --- */
 .site-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 70px;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%; position: fixed; top: 0; z-index: 1000; height: 70px;
+    background-color: rgba(0, 0, 0, 0.9); display: flex; align-items: center; justify-content: center;
 }
-
-.main-nav {
-    width: 100%;
-    padding: 0 10px;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px; /* Espace Desktop */
-}
-
+.nav-links { display: flex; gap: 15px; }
 .nav-links a {
-    color: #FFFFFF;
-    background-color: var(--accent-orange);
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    white-space: nowrap;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    color: #fff; background-color: var(--accent-orange); padding: 8px 15px;
+    border-radius: 5px; font-weight: bold; font-size: 0.9rem; text-decoration: none;
 }
+.nav-links a.active { background-color: #27ae60; }
 
-.nav-links a:hover {
-    background-color: var(--orange-hover);
-}
+/* --- 3. HERO --- */
+.hero-section { position: relative; height: 98vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero-bg-container { position: absolute; inset: 0; z-index: -1; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.hero-title { font-family: var(--font-heading); font-size: 4rem; margin-bottom: 20px; }
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.btn { padding: 15px 35px; font-weight: bold; border-radius: 5px; cursor: pointer; border: 2px solid var(--accent-orange); color: #fff; background: transparent; }
+.btn:hover { background: var(--accent-orange); }
 
-.nav-links a.active {
-    background-color: #27ae60;
-    color: #FFFFFF;
-}
+/* --- 4. GALERIE (AMÉLIORÉE) --- */
+.container-galerie { max-width: 1100px; margin: auto; padding: 100px 20px; }
+.titre-galerie { text-align: center; color: var(--accent-orange); font-size: 2.5rem; margin-bottom: 60px; font-family: var(--font-heading); }
 
-/* --- 3. SECTION HÉRO --- */
-.hero-section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 100px;
-}
+.galerie-grid { display: flex; flex-direction: column; gap: 50px; }
 
-.hero-bg-container {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+.plat-item { display: flex; align-items: center; gap: 40px; background: #111; padding: 20px; border-radius: 15px; }
 
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-}
+/* Étiquette de prix circulaire */
+.image-wrapper { position: relative; flex: 0 0 300px; }
+.image-wrapper img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; border: 2px solid #333; }
 
-.hero-content {
-    max-width: 800px;
-    padding: 20px;
-    z-index: 10;
+.prix-badge {
+    position: absolute; top: -15px; right: -15px;
+    background: var(--accent-orange); color: white;
+    width: 70px; height: 70px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.1rem; border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
+.prix-badge span { font-size: 0.7rem; margin-left: 2px; }
 
-.hero-title {
-    font-size: 5rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
+.texte-info { flex: 1; }
+.texte-info h2 { color: var(--accent-orange); margin-bottom: 10px; }
 
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    font-weight: 300;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    color: var(--text-primary);
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: transparent;
-    border: 2px solid var(--accent-orange);
-}
-.btn-primary:hover {
-    background-color: var(--accent-orange);
-}
-
-/* --- 4. GALERIE --- */
-.container-galerie {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
-
-.titre-galerie {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 50px;
-    color: var(--accent-orange);
-}
-
-.plat-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.image-container {
-    flex: 0 0 35%;
-}
-
-.image-container img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.texte-container h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-/* --- 5. TÉMOIGNAGES --- */
-.section-temoignages {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 80px 20px;
-}
-
-.titre-principal {
-    color: var(--accent-orange);
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-}
-
-.carte-temoignage {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.zone-image {
-    flex: 0 0 200px;
-}
-
-.zone-image img {
-    width: 100%;
-    border-radius: 10px;
-}
+/* --- 5. TÉMOIGNAGES (DESIGN HARMONISÉ) --- */
+.section-temoignages { padding: 80px 20px; background: #0a0a0a; border-top: 1px solid #222; }
+.titre-principal { text-align: center; color: var(--accent-orange); font-family: var(--font-heading); margin-bottom: 50px; }
+.temoin-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--accent-orange); margin-bottom: 20px; }
+.temoin-nom { color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+.temoin-texte { color: #bbb; font-style: italic; max-width: 600px; margin: auto; font-size: 1.1rem; }
 
 /* --- 6. FORMULAIRE --- */
-.container-formulaire {
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.titre-formulaire {
-    color: var(--accent-orange);
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group input, .input-group select {
-    width: 100%;
-    padding: 15px;
-    background-color: #D9D9D9;
-    border: 1px solid var(--accent-orange);
-    border-radius: 8px;
-    font-size: 1.1rem;
-}
-
-.btn-valider {
-    background-color: var(--accent-orange);
-    color: white;
-    padding: 12px 45px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    cursor: pointer;
-}
+.container-formulaire { max-width: 600px; margin: auto; padding: 80px 20px; text-align: center; }
+.titre-formulaire { color: var(--accent-orange); margin-bottom: 30px; font-family: var(--font-heading); }
+.input-row { display: flex; gap: 15px; margin-bottom: 20px; }
+.input-row input { flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--accent-orange); background: #D9D9D9; font-size: 1rem; }
+.btn-valider { background: var(--accent-orange); color: #fff; width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; cursor: pointer; }
 
 /* --- 7. FOOTER --- */
-.footer-restaurant {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    padding: 60px 20px 20px;
-}
+.footer-restaurant { background: #111; padding: 60px 20px; text-align: center; border-top: 2px solid var(--accent-orange); }
+.footer-content { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; }
+.footer-section h3 { color: var(--accent-orange); margin-bottom: 15px; }
+.footer-section a { color: #fff; text-decoration: none; }
 
-.footer-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-}
-
-.footer-section h3 {
-    color: var(--accent-orange);
-    margin-bottom: 20px;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-}
-
-/* --- 8. RESPONSIVE DESIGN (FIXÉ) --- */
-
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    /* Header - Alignement horizontal comme Desktop */
-    .site-header {
-        height: 60px; /* Plus fin sur mobile */
-    }
-
-    .nav-links {
-        gap: 5px; /* Espace réduit entre les boutons */
-    }
-
-    .nav-links a {
-        font-size: 0.6rem; /* Très petit pour tout faire tenir */
-        padding: 6px 8px;
-    }
-
-    /* Section Héro */
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .btn {
-        width: 85%;
-        padding: 12px 20px;
-    }
-
-    /* Galerie - Empilage vertical */
-    .plat-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .image-container {
-        flex: 0 0 100%;
-        width: 100%;
-    }
-
-    /* Témoignages - Empilage vertical */
-    .carte-temoignage {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .zone-image {
-        flex: 0 0 150px;
-        width: 150px;
-    }
-
-    .container-formulaire {
-        padding: 40px 20px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-/* Adaptation pour écrans très étroits */
-@media (max-width: 400px) {
-    .nav-links a {
-        font-size: 0.5rem;
-        padding: 4px 6px;
-    }
-}
-
-/* --- AMÉLIORATION GRILLE GALERIE (Fiche Projet) --- */
-.galerie-grid {
-    display: grid;
-    gap: 20px;
-    /* Mobile : 2 colonnes par défaut */
-    grid-template-columns: repeat(2, 1fr); 
-}
-
-@media (min-width: 992px) {
-    /* Desktop : 3 colonnes */
-    .galerie-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.plat-card {
-    background: #111;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.plat-card:hover {
-    transform: translateY(-10px);
-}
-
-.plat-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.plat-info {
-    padding: 15px;
-}
-
-.price {
-    display: block;
-    color: var(--accent-orange);
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-/* --- DESIGN DES TÉMOIGNAGES (SLIDE) --- */
-.testimonial-content {
-    text-align: center;
-    padding: 40px;
-}
-
-.user-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid var(--accent-orange);
-    margin-bottom: 15px;
-}
-
-/* --- FORMULAIRE ROW --- */
-.form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-    .form-row {
-        flex-direction: column;
-    }
-}
-
-/* --- BOUTONS HERO --- */
-.btn-cta {
-    background-color: var(--accent-orange);
-    border: none;
-}
-
-.btn-cta-outline {
-    background: transparent;
-    border: 2px solid #fff;
-}
-
-.btn-cta:hover, .btn-cta-outline:hover {
-    filter: brightness(1.2);
-    transform: scale(1.05);
+    .nav-links a { font-size: 0.6rem; padding: 6px 10px; }
+    .plat-item { flex-direction: column; text-align: center; }
+    .image-wrapper { flex: 0 0 auto; width: 100%; }
+    .hero-title { font-size: 2.5rem; }
+    .input-row { flex-direction: column; }
 }
