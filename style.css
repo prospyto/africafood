@@ -37,53 +37,61 @@ h1, h2 {
     font-family: var(--font-heading);
 }
 
-/* --- 2. HEADER ET NAVIGATION --- */
-/* --- 2. HEADER ET NAVIGATION (Version Corrigée) --- */
+/* --- 2. HEADER ET NAVIGATION (ALIGNEMENT HORIZONTAL FORCÉ) --- */
 .site-header {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    padding: 10px 0; /* Réduit pour plus de finesse */
-    min-height: 70px; /* Utilisation de min-height au lieu de height fixe */
+    height: 70px; /* Un peu plus fin pour libérer de l'espace */
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
-    align-items: center; /* Aligne verticalement le contenu */
+    align-items: center;
+    justify-content: center;
 }
 
 .main-nav {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 5px; /* Réduit pour gagner chaque pixel */
 }
 
 .nav-links {
     display: flex;
-    gap: 15px; /* Espace réduit pour que tout tienne sur une ligne */
+    justify-content: center;
     align-items: center;
+    gap: 8px; /* Espace réduit entre les boutons */
 }
 
 .nav-links a {
-    font-size: 0.9rem; /* Taille ajustée pour l'équilibre */
     color: #FFFFFF;
     background-color: var(--accent-orange);
-    padding: 8px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
-    white-space: nowrap; /* Empêche le texte de se couper en deux */
+    font-weight: bold;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne dans le bouton */
+    font-size: 0.9rem; /* Taille par défaut desktop */
+    transition: all 0.3s ease;
 }
 
-/* --- AJUSTEMENT MOBILE POUR LE HEADER --- */
+/* --- ADAPTATION MOBILE (POUR GARDER UNE SEULE LIGNE) --- */
 @media (max-width: 768px) {
     .nav-links {
-        gap: 8px;
-        padding: 0 5px;
+        gap: 4px; /* Espace minimum entre les boutons sur mobile */
     }
-    
+
     .nav-links a {
-        font-size: 0.75rem; /* Plus petit sur téléphone pour rester aligné */
-        padding: 6px 10px;
+        /* On réduit la taille du texte et du bouton pour que tout tienne */
+        font-size: 0.65rem; 
+        padding: 6px 8px;
+    }
+}
+
+/* Pour les écrans très petits (ex: iPhone SE) */
+@media (max-width: 380px) {
+    .nav-links a {
+        font-size: 0.55rem;
+        padding: 5px 6px;
     }
 }
 /* --- 3. SECTION HÉRO --- */
