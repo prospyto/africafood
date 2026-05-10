@@ -1,94 +1,88 @@
-/* --- VARIABLES ET RESET --- */
+/* --- CONFIGURATION & RESET --- */
 :root {
     --noir: #000000;
     --orange: #D35400;
-    --orange-clair: #E67E22;
-    --blanc: #FFFFFF;
+    --orange-hover: #E67E22;
 }
 
 * {
     margin: 0; padding: 0; box-sizing: border-box;
     text-decoration: none !important;
-    list-style: none !important; /* Supprime points verts et autres */
+    list-style: none !important;
 }
 
 body {
     background-color: var(--noir);
-    color: var(--blanc);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
     overflow-x: hidden;
 }
 
-/* --- HEADER RESPONSIVE --- */
+/* --- HEADER MOBILE ADAPTÉ --- */
 .site-header {
     width: 100%; height: 70px; background: rgba(0,0,0,0.95);
-    position: fixed; top: 0; z-index: 2000;
+    position: fixed; top: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: center;
 }
 
-.nav-links { display: flex; gap: 10px; padding: 0; margin: 0; }
-.nav-links a {
-    color: var(--blanc); background: var(--orange); padding: 8px 12px;
-    border-radius: 5px; font-weight: bold; font-size: 0.8rem;
-    transition: 0.3s; border: none;
+.nav-links { display: flex; gap: 10px; }
+.nav-links a, .nav-btn {
+    color: white; background: var(--orange); padding: 8px 12px;
+    border-radius: 5px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;
 }
-.nav-links a:hover, .nav-links a.active { background: var(--orange-clair); }
+.nav-links a:hover { background: var(--orange-hover); }
 
 /* --- HERO SECTION --- */
 .hero-section { height: 98vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
 .hero-bg-container { position: absolute; inset: 0; z-index: -1; }
-.hero-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
 .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin-bottom: 10px; }
-.hero-buttons { display: flex; gap: 15px; justify-content: center; }
 
-.btn-action, .btn-outline { padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-.btn-action { background: var(--orange); color: white; border: none; }
-.btn-outline { background: transparent; color: white; border: 2px solid var(--orange); }
+.btn-main, .btn-outline { padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.btn-main { background: var(--orange); color: white; border: none; }
+.btn-outline { background: transparent; color: white; border: 2px solid var(--orange); margin-left: 10px; }
 
 /* --- GALERIE (SANS DEFORMATION) --- */
 .container-galerie { padding: 100px 20px; max-width: 1100px; margin: auto; }
-.titre-section { text-align: center; color: var(--orange); margin-bottom: 50px; font-weight: bold; }
-.liste-plats { display: flex; flex-direction: column; gap: 30px; }
+.titre-section { text-align: center; color: var(--orange); margin-bottom: 50px; }
 
-.plat-item {
-    display: flex; background: #111; border-radius: 15px; overflow: hidden;
-    align-items: center; border: 1px solid #222;
-}
+.liste-plats { display: flex; flex-direction: column; gap: 40px; }
+.plat-item { display: flex; background: #111; border-radius: 15px; overflow: hidden; align-items: center; border: 1px solid #222; }
+
 .image-box { position: relative; flex: 0 0 35%; }
 .image-box img { width: 100%; height: 220px; object-fit: cover; display: block; }
 
 .prix-badge {
     position: absolute; top: 10px; left: 10px; background: var(--orange);
     width: 65px; height: 65px; border-radius: 50%; border: 3px solid white;
-    display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
 }
+
 .texte-box { padding: 30px; flex: 1; }
 .texte-box h3 { color: var(--orange); margin-bottom: 10px; }
 
-/* --- TÉMOIGNAGES --- */
-.section-temoignages { padding: 80px 20px; background: #080808; }
-.img-temoin { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--orange); margin-bottom: 15px; object-fit: cover; }
-
 /* --- FORMULAIRE --- */
 .container-formulaire { max-width: 700px; margin: 80px auto; padding: 0 20px; }
-.input-row { display: flex; gap: 15px; margin-bottom: 15px; }
-.input-row input, .full-width {
-    flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--orange); background: #eee; color: #333;
-}
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.form-row input, .full-width { flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--orange); background: #eee; color: #000; }
 .full-width { width: 100%; margin-bottom: 15px; min-height: 100px; }
-.btn-valider { width: 100%; background: var(--orange); color: white; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-submit { width: 100%; background: var(--orange); color: white; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
 /* --- FOOTER --- */
-.footer-site { background: #111; padding: 60px 20px 20px; border-top: 3px solid var(--orange); }
+.footer-site { background: #111; padding: 60px 20px; border-top: 3px solid var(--orange); }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
-.footer-col h3 { color: var(--orange); margin-bottom: 15px; }
-.footer-bottom { text-align: center; margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
+.footer-bottom { text-align: center; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
 
-/* --- RESPONSIVITÉ MOBILE --- */
+/* --- MODAL (POP-UP) --- */
+.text-orange { color: var(--orange) !important; font-weight: bold; }
+.menu-choice { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+.price { color: var(--orange); font-weight: bold; }
+.btn-confirm-pop { background: var(--orange); color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; }
+
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     .nav-links a { font-size: 0.65rem; padding: 6px 10px; }
     .plat-item { flex-direction: column; text-align: center; }
     .image-box { width: 100%; }
-    .input-row { flex-direction: column; }
-    .hero-title { font-size: 2.5rem; }
+    .form-row { flex-direction: column; }
 }
