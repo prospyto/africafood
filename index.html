@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Food - Premium</title>
+    <title>Africa Food - L'excellence culinaire</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,117 +24,150 @@
     <main>
         <section id="accueil" class="hero-section">
             <div class="hero-bg-container">
-                <img src="image1.webp" alt="Background" class="hero-image">
+                <img src="image1.webp" alt="Intérieur du restaurant" class="hero-image">
             </div>
             <div class="hero-content">
-                <h1 class="hero-title">AFRICA FOOD</h1>
-                <p class="hero-subtitle">L'authenticité des saveurs africaines au cœur de la tradition.</p>
+                <h1 class="hero-title text-uppercase">Africa Food</h1>
+                <p class="hero-subtitle">L'authenticité des saveurs africaines. Un voyage culinaire au cœur de la tradition.</p>
                 <div class="hero-buttons">
-                    <a href="#reservation" class="btn">Réserver</a>
-                    <button class="btn" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</button>
+                    <a href="#reservation" class="btn btn-cta">Réserver une table</a>
+                    <button class="btn btn-cta-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Passer commande</button>
                 </div>
             </div>
         </section>
 
         <section id="galerie" class="container-galerie">
-            <h1 class="titre-galerie">NOS PLATS PHARES</h1>
-            <div class="galerie-list">
-                
+            <h1 class="titre-section">NOTRE GALERIE</h1>
+            <div class="galerie-grid">
                 <article class="plat-item">
                     <div class="image-wrapper">
                         <img src="ima2.webp" alt="Spaghetti">
                         <div class="prix-badge">3500<span>F</span></div>
                     </div>
                     <div class="texte-info">
-                        <h2>Spaghetti Africana</h2>
-                        <p>Un mélange savoureux de spaghettis sautés, légumes croquants et viande braisée aux épices du Bénin.</p>
+                        <h3>Spaghetti Africana</h3>
+                        <p>Sautés aux légumes frais et viande braisée.</p>
                     </div>
                 </article>
-
                 <article class="plat-item">
                     <div class="image-wrapper">
                         <img src="ima3.webp" alt="Alloco">
                         <div class="prix-badge">2000<span>F</span></div>
                     </div>
                     <div class="texte-info">
-                        <h2>Alloco Traditionnel</h2>
-                        <p>Bananes plantains frites à la perfection, accompagnées d'une sauce tomate légèrement pimentée.</p>
+                        <h3>Alloco Traditionnel</h3>
+                        <p>Bananes plantains frites, dorées et fondantes.</p>
                     </div>
                 </article>
-
+                <article class="plat-item">
+                    <div class="image-wrapper">
+                        <img src="ima4.webp" alt="Jollof Rice">
+                        <div class="prix-badge">4500<span>F</span></div>
+                    </div>
+                    <div class="texte-info">
+                        <h3>Jollof Rice</h3>
+                        <p>Riz mijoté à la tomate épicée et poulet rôti.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
         <section id="temoignages" class="section-temoignages">
-            <h1 class="titre-principal text-center">TÉMOIGNAGES</h1>
+            <h1 class="titre-section">TÉMOIGNAGES CLIENTS</h1>
             <div id="carouselT" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner text-center">
                     <div class="carousel-item active">
-                        <img src="ima5.webp" class="temoin-img" alt="Sara">
-                        <h3 class="temoin-nom">Sara Figa</h3>
-                        <p class="temoin-texte">"Une explosion de saveurs ! Le mélange d'épices est parfaitement dosé."</p>
+                        <img src="ima5.webp" class="user-img" alt="Sara">
+                        <h4 class="user-name">Sara Figa</h4>
+                        <p class="user-comment">"Une explosion de saveurs ! Le mélange d'épices est parfait."</p>
                     </div>
                     <div class="carousel-item">
-                        <img src="ima6.webp" class="temoin-img" alt="Imma">
-                        <h3 class="temoin-nom">Imma Tita</h3>
-                        <p class="temoin-texte">"Le cadre est magnifique et le service est impeccable."</p>
+                        <img src="ima6.webp" class="user-img" alt="Imma">
+                        <h4 class="user-name">Imma Tita</h4>
+                        <p class="user-comment">"Le cadre est magnifique et le service est impeccable."</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="reservation" class="container-formulaire">
-            <h1 class="titre-formulaire">RÉSERVER / COMMANDER</h1>
-            <form class="form-style">
+            <h1 class="titre-section">RÉSERVATION & COMMANDE</h1>
+            <form id="orderForm" class="form-style">
                 <div class="input-row">
-                    <input type="text" placeholder="Nom et prénom" required>
+                    <input type="text" placeholder="Nom complet" required>
                     <input type="datetime-local" required>
                 </div>
                 <div class="input-row">
-                    <input type="number" placeholder="Personnes" min="1" required>
+                    <input type="number" placeholder="Nombre de personnes" min="1" required>
                     <input type="tel" placeholder="Téléphone" required>
                 </div>
-                <input type="email" placeholder="Votre Email" class="full-input">
-                <textarea placeholder="Précisez ici les plats choisis ou vos allergies..." class="full-input"></textarea>
+                <input type="email" placeholder="Email professionnel" class="full-input">
+                <textarea id="selection-details" placeholder="Détails de la commande ou demandes spéciales..." class="full-input"></textarea>
                 <button type="submit" class="btn-valider">VALIDER MA DEMANDE</button>
             </form>
         </section>
+
+        <footer id="contact" class="footer-restaurant">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CONTACT</h3>
+                    <p>📍 Cotonou, Plateau, Bénin</p>
+                    <p>📞 <a href="tel:+22900000000">+229 00 00 00 00</a></p>
+                    <p>✉️ <a href="mailto:contact@africafood.bj">contact@africafood.bj</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>SUIVEZ-NOUS</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>INFOS LÉGALES</h3>
+                    <p>Politique de confidentialité</p>
+                    <p>Mentions légales</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 | Réalisé par <strong>Prospère</strong></p>
+            </div>
+        </footer>
     </main>
 
     <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-dark">
+            <div class="modal-content">
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title">CHOISIR VOS PLATS</h5>
+                    <h5 class="modal-title">NOTRE CARTE</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <h6 class="fw-bold border-bottom pb-2">Plats principaux</h6>
-                    <div class="form-check d-flex justify-content-between align-items-center mb-2">
-                        <label class="form-check-label">Spaghetti Africana (3500F)</label>
-                        <input class="form-check-input" type="checkbox">
-                    </div>
-                    <div class="form-check d-flex justify-content-between align-items-center mb-2">
-                        <label class="form-check-label">Alloco Traditionnel (2000F)</label>
-                        <input class="form-check-input" type="checkbox">
-                    </div>
-                    <h6 class="fw-bold border-bottom pb-2 mt-3">Boissons & Desserts</h6>
-                    <div class="form-check d-flex justify-content-between align-items-center">
-                        <label class="form-check-label">Bissap Glacé (1000F)</label>
-                        <input class="form-check-input" type="checkbox">
-                    </div>
-                    <div class="form-check d-flex justify-content-between align-items-center">
-                        <label class="form-check-label">Degue (1500F)</label>
-                        <input class="form-check-input" type="checkbox">
+                <div class="modal-body text-dark">
+                    <h6 class="menu-cat">PLATS PHARES</h6>
+                    <label class="menu-item"><input type="checkbox" value="Spaghetti Africana"> Spaghetti Africana (3500F)</label>
+                    <label class="menu-item"><input type="checkbox" value="Alloco Traditionnel"> Alloco Traditionnel (2000F)</label>
+                    <label class="menu-item"><input type="checkbox" value="Jollof Rice"> Jollof Rice (4500F)</label>
+                    
+                    <h6 class="menu-cat mt-3">BOISSONS & DESSERTS</h6>
+                    <label class="menu-item"><input type="checkbox" value="Bissap Glacé"> Bissap Glacé (1000F)</label>
+                    <label class="menu-item"><input type="checkbox" value="Degue Artisanal"> Degue Artisanal (1500F)</label>
+                    
+                    <div class="offre-special mt-3">
+                        <strong>OFFRE SPÉCIALE :</strong> Menu Midi à 6000F
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-dark w-100" data-bs-dismiss="modal">Ajouter à ma réservation</button>
+                    <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal" onclick="updateOrder()">Ajouter à la commande</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateOrder() {
+            const selected = [];
+            document.querySelectorAll('.modal-body input:checked').forEach(cb => selected.push(cb.value));
+            document.getElementById('selection-details').value = "Plats choisis : " + selected.join(', ');
+        }
+    </script>
 </body>
 </html>
