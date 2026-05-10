@@ -1,64 +1,68 @@
-/* --- RESET & FONT --- */
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --bg-black: #000000;
+    --accent-orange: #D35400; /* Orange Brûlé Premium */
+    --accent-hover: #E67E22;
+    --text-light: #FFFFFF;
+    --text-muted: #CCCCCC;
+    --bg-card: #111111;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none !important; /* Enlève les soulignements partout */
-    list-style: none !important;    /* Enlève les points partout */
+    text-decoration: none; /* Enlève les soulignements */
+    list-style: none;      /* Enlève les points de liste */
 }
 
-:root {
-    --noir: #000000;
-    --orange: #D35400;
-    --orange-hover: #E67E22;
-    --gris: #333333;
-    --blanc: #FFFFFF;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--noir);
-    color: var(--blanc);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-light);
+    font-family: var(--font-main);
     line-height: 1.6;
 }
 
-/* --- HEADER --- */
+/* --- 2. HEADER & NAVIGATION --- */
 .site-header {
     width: 100%;
-    height: 70px;
-    background: rgba(0,0,0,0.95);
+    height: 75px;
+    background: rgba(0, 0, 0, 0.95);
     position: fixed;
     top: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #222;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
-.btn-nav {
-    color: var(--blanc) !important;
-    background: var(--orange);
-    padding: 8px 15px;
-    border-radius: 5px;
+.nav-links a {
+    color: var(--text-light);
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 4px;
     transition: 0.3s;
 }
 
-.btn-nav:hover {
-    background: var(--orange-hover);
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--accent-orange);
+    color: white;
 }
 
-.btn-nav.active {
-    background: #27ae60; /* Couleur de validation pour la page courante */
-}
-
-/* --- HERO --- */
+/* --- 3. HERO SECTION (98vh) --- */
 .hero-section {
     height: 98vh;
     display: flex;
@@ -66,9 +70,10 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
-.hero-bg {
+.hero-bg-container {
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -78,84 +83,270 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.5; /* Assombrit l'image pour lire le texte */
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 900;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
-.hero-actions {
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.hero-buttons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
 }
 
-.btn-orange { background: var(--orange); color: white; padding: 15px 30px; border-radius: 5px; font-weight: bold; }
-.btn-border { background: transparent; color: white; border: 2px solid var(--orange); padding: 15px 30px; border-radius: 5px; font-weight: bold; }
+.btn {
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
 
-/* --- GALERIE --- */
-.section-padding { padding: 80px 20px; }
-.section-title { text-align: center; color: var(--orange); margin-bottom: 50px; font-weight: bold; }
+.btn-primary {
+    background-color: var(--accent-orange);
+    color: white;
+    border: 2px solid var(--accent-orange);
+}
 
-.galerie-verticale { display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: auto; }
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+}
 
-.plat-card {
+/* --- 4. GALERIE (DESIGN VERTICAL & PRIX) --- */
+.container-galerie {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.titre-galerie {
+    text-align: center;
+    color: var(--accent-orange);
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+}
+
+.liste-plats {
     display: flex;
-    background: #111;
-    border-radius: 15px;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.plat-item {
+    display: flex;
+    background: var(--bg-card);
+    border-radius: 20px;
     overflow: hidden;
     align-items: center;
     border: 1px solid #222;
+    transition: 0.3s;
 }
 
-.plat-img-box { position: relative; flex: 0 0 40%; }
-.plat-img-box img { width: 100%; height: 220px; object-fit: cover; }
+.plat-item:hover {
+    border-color: var(--accent-orange);
+}
 
-.prix-tag {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    background: var(--orange);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+.image-container {
+    position: relative;
+    flex: 0 0 40%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Étiquette de prix circulaire (Simulé ici, ajoutez la div dans le HTML si besoin) */
+/* Pour l'instant on stylise l'image-container */
+
+.texte-container {
+    padding: 40px;
+    flex: 1;
+}
+
+.texte-container h2 {
+    color: var(--accent-orange);
+    margin-bottom: 15px;
+}
+
+/* --- 5. TÉMOIGNAGES --- */
+.section-temoignages {
+    padding: 80px 20px;
+    background-color: #050505;
+}
+
+.titre-principal {
+    text-align: center;
+    color: var(--accent-orange);
+    margin-bottom: 50px;
+}
+
+.conteneur-temoignages {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
+}
+
+.carte-temoignage {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 350px;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-orange);
+}
+
+.zone-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-orange);
+    margin-bottom: 15px;
+}
+
+.zone-texte h3 {
+    margin-bottom: 10px;
+    color: var(--accent-orange);
+}
+
+.zone-texte p {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* --- 6. FORMULAIRE DE COMMANDE --- */
+.container-formulaire {
+    padding: 100px 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.titre-formulaire {
+    text-align: center;
+    color: var(--accent-orange);
+    margin-bottom: 40px;
+}
+
+.form-style {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
+    font-size: 1rem;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--accent-orange);
+    outline: none;
+}
+
+.btn-valider {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 8px;
     font-weight: bold;
-    border: 3px solid var(--blanc);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
-.plat-desc { padding: 30px; flex: 1; }
-.plat-desc h3 { color: var(--orange); margin-bottom: 10px; }
-
-/* --- FORMULAIRE --- */
-.booking-form { max-width: 650px; margin: auto; }
-.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
-.form-row input, .input-full {
-    flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--orange); background: #eee; color: #000;
+.btn-valider:hover {
+    background: var(--accent-hover);
 }
-.input-full { width: 100%; margin-bottom: 15px; }
-.btn-submit { width: 100%; background: var(--orange); color: white; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
-/* --- FOOTER --- */
-.site-footer { background: #111; padding: 60px 20px 20px; border-top: 3px solid var(--orange); margin-top: 50px; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; }
-.footer-grid h4 { color: var(--orange); margin-bottom: 15px; font-size: 1rem; }
-.footer-copy { text-align: center; margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; font-size: 0.8rem; }
+/* --- 7. FOOTER --- */
+.footer-restaurant {
+    background: #0a0a0a;
+    padding: 60px 20px 20px;
+    border-top: 2px solid var(--accent-orange);
+}
 
-/* --- POP-UP --- */
-.menu-label { font-weight: bold; border-bottom: 2px solid var(--orange); padding-bottom: 5px; margin-bottom: 10px; color: var(--noir); }
-.menu-item-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 40px;
+}
 
-/* --- RESPONSIVE --- */
+.footer-section h3 {
+    color: var(--accent-orange);
+    margin-bottom: 15px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--text-muted);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- 8. RESPONSIVITÉ MOBILE --- */
 @media (max-width: 768px) {
-    .nav-links a { font-size: 0.65rem; padding: 6px 10px; }
-    .plat-card { flex-direction: column; text-align: center; }
-    .plat-img-box { width: 100%; }
-    .form-row { flex-direction: column; }
-    .hero-title { font-size: 3rem; }
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .plat-item {
+        flex-direction: column; /* L'image passe au dessus du texte */
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .texte-container {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
