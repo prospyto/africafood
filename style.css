@@ -1,4 +1,4 @@
-/* --- CONFIGURATION & RESET --- */
+/* --- RESET & VARIABLES --- */
 :root {
     --noir: #000000;
     --orange: #D35400;
@@ -14,72 +14,74 @@
 body {
     background-color: var(--noir);
     color: white;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     overflow-x: hidden;
 }
 
-/* --- HEADER MOBILE ADAPTÉ --- */
+/* --- HEADER --- */
 .site-header {
     width: 100%; height: 70px; background: rgba(0,0,0,0.95);
     position: fixed; top: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: center;
 }
-
 .nav-links { display: flex; gap: 10px; }
-.nav-links a, .nav-btn {
+.nav-links a, .nav-item {
     color: white; background: var(--orange); padding: 8px 12px;
     border-radius: 5px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;
 }
 .nav-links a:hover { background: var(--orange-hover); }
 
-/* --- HERO SECTION --- */
+/* --- HERO (98vh) --- */
 .hero-section { height: 98vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
 .hero-bg-container { position: absolute; inset: 0; z-index: -1; }
-.hero-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
 .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin-bottom: 10px; }
-
-.btn-main, .btn-outline { padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.btn-main, .btn-outline { padding: 12px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; margin: 5px; }
 .btn-main { background: var(--orange); color: white; border: none; }
-.btn-outline { background: transparent; color: white; border: 2px solid var(--orange); margin-left: 10px; }
+.btn-outline { background: transparent; color: white; border: 2px solid var(--orange); }
 
 /* --- GALERIE (SANS DEFORMATION) --- */
 .container-galerie { padding: 100px 20px; max-width: 1100px; margin: auto; }
-.titre-section { text-align: center; color: var(--orange); margin-bottom: 50px; }
-
-.liste-plats { display: flex; flex-direction: column; gap: 40px; }
+.titre-section { text-align: center; color: var(--orange); margin-bottom: 50px; font-weight: bold; }
+.liste-plats { display: flex; flex-direction: column; gap: 30px; }
 .plat-item { display: flex; background: #111; border-radius: 15px; overflow: hidden; align-items: center; border: 1px solid #222; }
-
 .image-box { position: relative; flex: 0 0 35%; }
 .image-box img { width: 100%; height: 220px; object-fit: cover; display: block; }
-
-.prix-badge {
-    position: absolute; top: 10px; left: 10px; background: var(--orange);
-    width: 65px; height: 65px; border-radius: 50%; border: 3px solid white;
-    display: flex; align-items: center; justify-content: center; font-weight: bold;
-}
-
+.prix-badge { position: absolute; top: 10px; left: 10px; background: var(--orange); width: 65px; height: 65px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .texte-box { padding: 30px; flex: 1; }
 .texte-box h3 { color: var(--orange); margin-bottom: 10px; }
 
-/* --- FORMULAIRE --- */
+/* --- TÉMOIGNAGES --- */
+.section-temoignages { padding: 80px 20px; background: #080808; text-align: center; }
+.conteneur-temoignages { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+.carte-temoignage { background: #1a1a1a; padding: 25px; border-radius: 10px; width: 300px; border-bottom: 3px solid var(--orange); }
+.carte-temoignage img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--orange); margin-bottom: 15px; object-fit: cover; }
+
+/* --- FORMULAIRE & CONFIRMATION --- */
 .container-formulaire { max-width: 700px; margin: 80px auto; padding: 0 20px; }
 .form-row { display: flex; gap: 15px; margin-bottom: 15px; }
-.form-row input, .full-width { flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--orange); background: #eee; color: #000; }
+.form-row input, .full-width { flex: 1; padding: 15px; border-radius: 8px; border: 1px solid var(--orange); background: #eee; color: #333; }
 .full-width { width: 100%; margin-bottom: 15px; min-height: 100px; }
 .btn-submit { width: 100%; background: var(--orange); color: white; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
+.alert-success-custom {
+    background: #27ae60; color: white; padding: 30px; border-radius: 10px; text-align: center; font-weight: bold; font-size: 1.2rem;
+}
+
 /* --- FOOTER --- */
-.footer-site { background: #111; padding: 60px 20px; border-top: 3px solid var(--orange); }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
-.footer-bottom { text-align: center; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
+.footer-site { background: #111; padding: 60px 20px 20px; border-top: 3px solid var(--orange); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
+.footer-title { color: var(--orange); margin-bottom: 15px; }
+.footer-info-list li { margin-bottom: 10px; font-size: 0.9rem; }
+.footer-bottom { text-align: center; margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; }
 
-/* --- MODAL (POP-UP) --- */
+/* --- MODAL POP-UP --- */
 .text-orange { color: var(--orange) !important; font-weight: bold; }
-.menu-choice { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
-.price { color: var(--orange); font-weight: bold; }
-.btn-confirm-pop { background: var(--orange); color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; }
+.menu-choice-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+.price-txt { color: var(--orange); font-weight: bold; }
+.btn-confirm-pop { background: var(--orange); color: white; border: none; padding: 12px; font-weight: bold; border-radius: 5px; }
 
-/* --- RESPONSIVE MOBILE --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
     .nav-links a { font-size: 0.65rem; padding: 6px 10px; }
     .plat-item { flex-direction: column; text-align: center; }
