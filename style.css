@@ -1,37 +1,31 @@
-/* --- 1. VARIABLES & RESET --- */
+/* --- CONFIGURATION GÉNÉRALE & RESET --- */
 :root {
-    --bg-black: #000000;
-    --accent-orange: #D35400; /* Orange Brûlé Premium */
-    --accent-hover: #E67E22;
-    --text-light: #FFFFFF;
-    --text-muted: #CCCCCC;
-    --bg-card: #111111;
-    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --noir: #000000;
+    --orange: #D35400;
+    --orange-hover: #E67E22;
+    --gris-clair: #f4f4f4;
+    --blanc: #ffffff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none; /* Enlève les soulignements */
-    list-style: none;      /* Enlève les points de liste */
-}
-
-html {
-    scroll-behavior: smooth;
+    text-decoration: none !important; /* Supprime soulignement */
+    list-style: none !important;    /* Supprime les points du header et footer */
 }
 
 body {
-    background-color: var(--bg-black);
-    color: var(--text-light);
-    font-family: var(--font-main);
+    background-color: var(--noir);
+    color: var(--blanc);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
 }
 
-/* --- 2. HEADER & NAVIGATION --- */
+/* --- HEADER --- */
 .site-header {
     width: 100%;
-    height: 75px;
+    height: 70px;
     background: rgba(0, 0, 0, 0.95);
     position: fixed;
     top: 0;
@@ -39,7 +33,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #222;
 }
 
 .nav-links {
@@ -48,21 +41,20 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-light);
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    color: var(--blanc);
+    background: var(--orange);
     padding: 8px 15px;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
     transition: 0.3s;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    background-color: var(--accent-orange);
-    color: white;
+    background: var(--orange-hover);
 }
 
-/* --- 3. HERO SECTION (98vh) --- */
+/* --- HERO SECTION --- */
 .hero-section {
     height: 98vh;
     display: flex;
@@ -70,7 +62,6 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
 .hero-bg-container {
@@ -83,48 +74,40 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5; /* Assombrit l'image pour lire le texte */
+    opacity: 0.4;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(3rem, 10vw, 5rem);
     font-weight: 900;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: var(--text-muted);
+    margin-bottom: 10px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
 }
 
 .btn {
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 5px;
     font-weight: bold;
+    border: 2px solid var(--orange);
     transition: 0.3s;
-    display: inline-block;
 }
 
 .btn-primary {
-    background-color: var(--accent-orange);
+    background: var(--orange);
     color: white;
-    border: 2px solid var(--accent-orange);
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-3px);
+.btn:hover {
+    transform: scale(1.05);
+    background: var(--orange-hover);
 }
 
-/* --- 4. GALERIE (DESIGN VERTICAL & PRIX) --- */
+/* --- GALERIE (ALIGNEE & PRIX EN CERCLE) --- */
 .container-galerie {
     padding: 100px 20px;
     max-width: 1100px;
@@ -133,220 +116,210 @@ body {
 
 .titre-galerie {
     text-align: center;
-    color: var(--accent-orange);
-    margin-bottom: 60px;
-    font-size: 2.5rem;
+    color: var(--orange);
+    margin-bottom: 50px;
 }
 
 .liste-plats {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
 }
 
 .plat-item {
     display: flex;
-    background: var(--bg-card);
-    border-radius: 20px;
+    background: #111;
+    border-radius: 15px;
     overflow: hidden;
     align-items: center;
     border: 1px solid #222;
-    transition: 0.3s;
-}
-
-.plat-item:hover {
-    border-color: var(--accent-orange);
 }
 
 .image-container {
     position: relative;
-    flex: 0 0 40%;
+    flex: 0 0 35%;
 }
 
 .image-container img {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
 }
 
-/* Étiquette de prix circulaire (Simulé ici, ajoutez la div dans le HTML si besoin) */
-/* Pour l'instant on stylise l'image-container */
+/* L'Étiquette de prix circulaire */
+.image-container::after {
+    content: "PRIX"; /* Texte par défaut si besoin */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--orange);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid white;
+    font-size: 0.8rem;
+}
+
+/* Note: Pour personnaliser les prix par plat sans modifier le HTML, 
+   on utilise des sélecteurs spécifiques ici */
+.plat-item:nth-child(1) .image-container::after { content: "3500F"; }
+.plat-item:nth-child(2) .image-container::after { content: "2000F"; }
+.plat-item:nth-child(3) .image-container::after { content: "4500F"; }
 
 .texte-container {
-    padding: 40px;
+    padding: 30px;
     flex: 1;
 }
 
 .texte-container h2 {
-    color: var(--accent-orange);
-    margin-bottom: 15px;
+    color: var(--orange);
+    margin-bottom: 10px;
 }
 
-/* --- 5. TÉMOIGNAGES --- */
+/* --- TÉMOIGNAGES --- */
 .section-temoignages {
     padding: 80px 20px;
-    background-color: #050505;
+    background: #080808;
 }
 
 .titre-principal {
     text-align: center;
-    color: var(--accent-orange);
-    margin-bottom: 50px;
+    color: var(--orange);
+    margin-bottom: 40px;
 }
 
 .conteneur-temoignages {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
 }
 
 .carte-temoignage {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 350px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
     text-align: center;
-    border-bottom: 4px solid var(--accent-orange);
+    border-bottom: 3px solid var(--orange);
 }
 
 .zone-image img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--accent-orange);
+    border: 2px solid var(--orange);
     margin-bottom: 15px;
 }
 
 .zone-texte h3 {
+    color: var(--orange);
     margin-bottom: 10px;
-    color: var(--accent-orange);
 }
 
 .zone-texte p {
     font-style: italic;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    color: #ccc;
 }
 
-/* --- 6. FORMULAIRE DE COMMANDE --- */
+/* --- FORMULAIRE --- */
 .container-formulaire {
-    padding: 100px 20px;
     max-width: 600px;
-    margin: auto;
+    margin: 80px auto;
+    padding: 20px;
 }
 
 .titre-formulaire {
     text-align: center;
-    color: var(--accent-orange);
-    margin-bottom: 40px;
+    color: var(--orange);
+    margin-bottom: 30px;
 }
 
-.form-style {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.form-style .input-group {
+    margin-bottom: 15px;
 }
 
-.input-group input, .input-group select {
+.form-style input, .form-style select {
     width: 100%;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background: #1a1a1a;
-    color: white;
-    font-size: 1rem;
-}
-
-.input-group input:focus, .input-group select:focus {
-    border-color: var(--accent-orange);
-    outline: none;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--orange);
+    background: #eee;
+    color: #333;
 }
 
 .btn-valider {
-    background: var(--accent-orange);
+    width: 100%;
+    padding: 15px;
+    background: var(--orange);
     color: white;
     border: none;
-    padding: 18px;
-    border-radius: 8px;
+    border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.1rem;
     transition: 0.3s;
 }
 
 .btn-valider:hover {
-    background: var(--accent-hover);
+    background: var(--orange-hover);
 }
 
-/* --- 7. FOOTER --- */
+/* --- FOOTER --- */
 .footer-restaurant {
-    background: #0a0a0a;
-    padding: 60px 20px 20px;
-    border-top: 2px solid var(--accent-orange);
+    background: #111;
+    padding: 50px 20px 20px;
+    border-top: 2px solid var(--orange);
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 40px;
-    max-width: 1200px;
+    gap: 30px;
+    max-width: 1100px;
     margin: auto;
-    margin-bottom: 40px;
 }
 
 .footer-section h3 {
-    color: var(--accent-orange);
+    color: var(--orange);
     margin-bottom: 15px;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: var(--text-muted);
+.footer-section a {
+    color: white;
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid #222;
+    margin-top: 40px;
+    border-top: 1px solid #333;
     padding-top: 20px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-size: 0.8rem;
 }
 
-/* --- 8. RESPONSIVITÉ MOBILE --- */
+/* --- RESPONSIVITÉ MOBILE --- */
 @media (max-width: 768px) {
     .nav-links {
         gap: 5px;
     }
-
+    
     .nav-links a {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         padding: 5px 8px;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
     .plat-item {
-        flex-direction: column; /* L'image passe au dessus du texte */
+        flex-direction: column;
+        text-align: center;
     }
 
     .image-container {
         width: 100%;
-    }
-
-    .texte-container {
-        text-align: center;
-        padding: 20px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
     }
 }
