@@ -38,45 +38,54 @@ h1, h2 {
 }
 
 /* --- 2. HEADER ET NAVIGATION --- */
+/* --- 2. HEADER ET NAVIGATION (Version Corrigée) --- */
 .site-header {
     width: 100%;
-    position: fixed; /* Fixé en haut pour naviguer facilement */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    padding: 20px 0;
-    height: 80px;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent */
+    padding: 10px 0; /* Réduit pour plus de finesse */
+    min-height: 70px; /* Utilisation de min-height au lieu de height fixe */
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center; /* Aligne verticalement le contenu */
 }
 
 .main-nav {
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
-    font-weight: bold; 
+    gap: 15px; /* Espace réduit pour que tout tienne sur une ligne */
+    align-items: center;
 }
 
 .nav-links a {
-    font-size: 1.1rem;
-    color: rgba(242, 244, 239, 0.97);
-    background-color: var(--accent-orange);
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.nav-links a:hover {
-    background-color: var(--orange-hover);
-}
-
-.nav-links a.active {
-    background-color: #27ae60; /* Conservé comme votre intention de lien actif */
+    font-size: 0.9rem; /* Taille ajustée pour l'équilibre */
     color: #FFFFFF;
+    background-color: var(--accent-orange);
+    padding: 8px 15px;
+    border-radius: 5px;
+    white-space: nowrap; /* Empêche le texte de se couper en deux */
 }
 
+/* --- AJUSTEMENT MOBILE POUR LE HEADER --- */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 8px;
+        padding: 0 5px;
+    }
+    
+    .nav-links a {
+        font-size: 0.75rem; /* Plus petit sur téléphone pour rester aligné */
+        padding: 6px 10px;
+    }
+}
 /* --- 3. SECTION HÉRO --- */
 .hero-section {
     position: relative;
