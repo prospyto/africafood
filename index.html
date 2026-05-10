@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africa Food - L'authenticité des saveurs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +13,7 @@
         <nav class="main-nav">
             <ul class="nav-links">
                 <li><a href="#accueil" class="active">Accueil</a></li>
-                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
                 <li><a href="#temoignages">Témoignages</a></li>
                 <li><a href="#reservation">Réservation</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -34,7 +35,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#reservation" class="btn btn-primary">Réserver une table</a>
-                    <a href="#reservation" class="btn btn-primary">Commander</a>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</a>
                 </div>
             </div>
         </section>
@@ -120,23 +121,18 @@
                 </div>
                 
                 <div class="input-group">
-                    <select required>
-                        <option value="" disabled selected>Sélectionnez un menu</option>
-                        <option value="spaghetti">Spaghetti Africana</option>
-                        <option value="alloco">Alloco Traditionnel</option>
-                        <option value="jollof">Jollof Rice</option>
-                    </select>
+                    <input type="datetime-local" title="Date et heure de réservation" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" placeholder="Adresse de livraison" required>
+                    <input type="number" placeholder="Nombre de personnes" min="1" required>
                 </div>
-                
+
                 <div class="input-group">
-                    <input type="tel" placeholder="Numéro de téléphone / Paiement" required>
+                    <input type="tel" placeholder="Numéro de téléphone" required>
                 </div>
                 
-                <button type="submit" class="btn-valider">Valider la commande</button>
+                <button type="submit" class="btn-valider">Confirmer la réservation</button>
             </form>
         </section>
 
@@ -151,7 +147,7 @@
                     <h3>Liens Rapides</h3>
                     <ul>
                         <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
                         <li><a href="#reservation">Réservation</a></li>
                     </ul>
                 </div>
@@ -159,16 +155,36 @@
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Cotonou, Bénin</p>
-                    <p>Tél : +229 00 00 00 00</p>
+                    <p>Tél : <a href="tel:+22900000000" style="color:inherit; text-decoration:none;">+229 00 00 00 00</a></p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-               <p>&copy; 2026 Tous droits réservés | Développé avec passion par <strong>Prospère </strong></p>
+               <p>&copy; 2026 Tous droits réservés | Développé avec passion par <strong>Prospère</strong></p>
             </div>
         </footer>
     </main>
 
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="menuModalLabel">Notre Carte Africaine</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Découvrez nos spécialités maison :</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Spaghetti Africana</strong> - Sauce légumes & viande braisée</li>
+                        <li><strong>Alloco Traditionnel</strong> - Plantains frites</li>
+                        <li><strong>Jollof Rice</strong> - Riz mijoté & poulet rôti</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
