@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Food - L'authenticité des saveurs</title>
+    <title>Africa Food - L'authenticité des saveurs africaines</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +12,11 @@
     <header class="site-header">
         <nav class="main-nav">
             <ul class="nav-links">
-                <li><a href="#accueil" class="nav-btn active">Accueil</a></li>
-                <li><a href="#" class="nav-btn" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
+                <li><a href="#accueil" class="nav-item">Accueil</a></li>
+                <li><a href="#" class="nav-item" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
                 <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#temoignages">Avis</a></li>
                 <li><a href="#reservation">Réservation</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -24,14 +24,14 @@
     <main>
         <section id="accueil" class="hero-section">
             <div class="hero-bg-container">
-                <img src="image1.webp" alt="Background" class="hero-image">
+                <img src="image1.webp" alt="Background Africa Food" class="hero-image">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">AFRICA FOOD</h1>
                 <p class="hero-subtitle">L'authenticité des saveurs africaines.<br>Un voyage culinaire au cœur de la tradition.</p>
                 <div class="hero-buttons">
                     <a href="#reservation" class="btn-main">Réserver une table</a>
-                    <button class="btn-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</button>
+                    <button class="btn-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Passer commande</button>
                 </div>
             </div>
         </section>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="texte-box">
                         <h3>Spaghetti Africana</h3>
-                        <p>Spaghetti sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
+                        <p>Sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
                     </div>
                 </article>
 
@@ -57,7 +57,7 @@
                     </div>
                     <div class="texte-box">
                         <h3>Alloco Traditionnel</h3>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec une petite sauce pimentée.</p>
+                        <p>Bananes plantains frites, dorées et fondantes, servies avec sauce maison.</p>
                     </div>
                 </article>
 
@@ -68,42 +68,84 @@
                     </div>
                     <div class="texte-box">
                         <h3>Jollof Rice</h3>
-                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée, servi avec son poulet rôti.</p>
+                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée et son poulet rôti.</p>
                     </div>
                 </article>
             </div>
         </section>
 
+        <section id="temoignages" class="section-temoignages">
+            <h2 class="titre-section">TÉMOIGNAGES</h2>
+            <div class="conteneur-temoignages">
+                <div class="carte-temoignage">
+                    <img src="ima5.webp" alt="Sara Figa">
+                    <h3>Sara Figa</h3>
+                    <p>"Une explosion de saveurs ! On sent vraiment le goût du pays."</p>
+                </div>
+                <div class="carte-temoignage">
+                    <img src="ima6.webp" alt="Imma Tita">
+                    <h3>Imma Tita</h3>
+                    <p>"Le cadre est magnifique et le service impeccable. Ma cantine préférée."</p>
+                </div>
+                <div class="carte-temoignage">
+                    <img src="ima7.webp" alt="Daniel Yov">
+                    <h3>Daniel Yov</h3>
+                    <p>"Enfin un restaurant qui respecte les recettes traditionnelles. Bravo !"</p>
+                </div>
+            </div>
+        </section>
+
         <section id="reservation" class="container-formulaire">
             <h2 class="titre-section">RÉSERVATION & COMMANDE</h2>
-            <form class="form-style" id="main-booking-form">
-                <div class="form-row">
+            
+            <div id="success-message" class="alert-success-custom" style="display: none;">
+                ✅ Votre demande a été reçue avec succès ! Nous vous recontacterons vite.
+            </div>
+
+            <form id="orderForm" class="form-style" onsubmit="handleFormSubmit(event)">
+                <div class="input-row">
                     <input type="text" placeholder="Nom et Prénom" required>
                     <input type="email" placeholder="Votre Email (Obligatoire)" required>
                 </div>
-                <div class="form-row">
+                <div class="input-row">
                     <input type="tel" placeholder="Téléphone / Paiement" required>
                     <input type="text" placeholder="Adresse de livraison" required>
                 </div>
-                <textarea id="order-field" placeholder="Détails de la commande (choisissez dans le menu)..." class="full-width"></textarea>
-                <button type="submit" class="btn-submit">VALIDER MA COMMANDE</button>
+                <textarea id="order-details" placeholder="Détails de votre commande (choisissez dans le menu)..." class="full-width"></textarea>
+                <button type="submit" class="btn-submit">ENVOYER MA DEMANDE</button>
             </form>
         </section>
 
         <footer id="contact" class="footer-site">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Africa Food</h3>
-                    <p>Une expérience authentique.</p>
+                    <h3 class="footer-title">AFRICA FOOD</h3>
+                    <p>L'authenticité des saveurs africaines au cœur de la tradition.</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact</h3>
-                    <p>📍 Cotonou, Bénin</p>
-                    <p>📞 +229 00 00 00 00</p>
+                    <h3 class="footer-title">CONTACTS</h3>
+                    <ul class="footer-info-list">
+                        <li>📍 Haie Vive, Cotonou, Bénin</li>
+                        <li>📞 +229 00 00 00 00</li>
+                        <li>✉️ contact@africafood.bj</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">HORAIRES</h3>
+                    <ul class="footer-info-list">
+                        <li>Lun-Ven: 11h - 23h</li>
+                        <li>Sam-Dim: 12h - 00h</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">SUIVEZ-NOUS</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a> | <a href="#">Instagram</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 | Réalisé par <strong>Prospère</strong></p>
+                <p>&copy; 2026 | Réalisé avec passion par <strong>Prospère</strong></p>
             </div>
         </footer>
     </main>
@@ -116,27 +158,15 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <h6 class="text-secondary small mb-3">SÉLECTIONNEZ VOS PLATS</h6>
-                    <div class="menu-choice">
-                        <label><input type="checkbox" class="chk-plat" value="Spaghetti Africana"> Spaghetti Africana</label>
-                        <span class="price">3500F</span>
-                    </div>
-                    <div class="menu-choice">
-                        <label><input type="checkbox" class="chk-plat" value="Alloco Traditionnel"> Alloco Traditionnel</label>
-                        <span class="price">2000F</span>
-                    </div>
-                    <div class="menu-choice">
-                        <label><input type="checkbox" class="chk-plat" value="Jollof Rice"> Jollof Rice</label>
-                        <span class="price">4500F</span>
-                    </div>
+                    <h6 class="text-secondary small mb-3">PLATS PRINCIPAUX</h6>
+                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Spaghetti Africana"> Spaghetti Africana</label><span class="price-txt">3500F</span></div>
+                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Alloco Traditionnel"> Alloco Traditionnel</label><span class="price-txt">2000F</span></div>
+                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Jollof Rice"> Jollof Rice</label><span class="price-txt">4500F</span></div>
                     <h6 class="text-secondary small mt-4 mb-3">BOISSONS</h6>
-                    <div class="menu-choice">
-                        <label><input type="checkbox" class="chk-plat" value="Bissap Glacé"> Bissap Glacé</label>
-                        <span class="price">1000F</span>
-                    </div>
+                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Bissap Glacé"> Bissap Glacé</label><span class="price-txt">1000F</span></div>
                 </div>
                 <div class="modal-footer border-secondary">
-                    <button class="btn-confirm-pop w-100" onclick="processOrder()" data-bs-dismiss="modal">Valider et remplir les infos</button>
+                    <button class="btn-confirm-pop w-100" onclick="finalizeOrder()" data-bs-dismiss="modal">Confirmer et Commander</button>
                 </div>
             </div>
         </div>
@@ -144,16 +174,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function processOrder() {
+        // Gestion de la Pop-up
+        function finalizeOrder() {
             let selected = [];
             document.querySelectorAll('.chk-plat:checked').forEach(el => selected.push(el.value));
-            
             if (selected.length > 0) {
-                // Remplit le champ commande
-                document.getElementById('order-field').value = "Commande : " + selected.join(', ');
-                // Dirige vers le formulaire
+                document.getElementById('order-details').value = "Commande : " + selected.join(', ');
                 document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
             }
+        }
+
+        // Gestion du message de succès
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            document.getElementById('orderForm').style.display = 'none'; // Cache le formulaire
+            document.getElementById('success-message').style.display = 'block'; // Montre le message
         }
     </script>
 </body>
