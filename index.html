@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Food - L'excellence Culinaire</title>
+    <title>Africa Food - L'excellence culinaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
             <ul class="nav-links">
                 <li><a href="#accueil" class="active">Accueil</a></li>
                 <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#temoignages">Avis</a></li>
                 <li><a href="#reservation">Réservation</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -23,32 +24,29 @@
     <main>
         <section id="accueil" class="hero-section">
             <div class="hero-bg-container">
-                <img src="image1.webp" alt="Ambiance Africa Food" class="hero-image">
+                <img src="image1.webp" alt="Background" class="hero-image">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">AFRICA FOOD</h1>
-                <p class="hero-subtitle">
-                    L'authenticité des saveurs africaines.<br>
-                    Un voyage culinaire au cœur de la tradition.
-                </p>
+                <p class="hero-subtitle">L'authenticité des saveurs africaines au cœur de la tradition.</p>
                 <div class="hero-buttons">
-                    <a href="#reservation" class="btn btn-main">Réserver une table</a>
-                    <a href="#reservation" class="btn btn-outline">Commander</a>
+                    <a href="#reservation" class="btn-main">Réserver</a>
+                    <button class="btn-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Commander</button>
                 </div>
             </div>
         </section>
 
         <section id="galerie" class="container-galerie">
-            <h2 class="titre-section">NOS PLATS PHARES</h2>
+            <h1 class="titre-section">NOS PLATS PHARES</h1>
             <div class="liste-plats">
                 <article class="plat-item">
                     <div class="image-wrapper">
                         <img src="ima2.webp" alt="Spaghetti Africana">
                         <div class="badge-prix">3500<span>F</span></div>
                     </div>
-                    <div class="texte-wrapper">
+                    <div class="texte-info">
                         <h2>Spaghetti Africana</h2>
-                        <p>Spaghetti sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
+                        <p>Spaghetti sautés aux légumes frais, épices locales et viande braisée.</p>
                     </div>
                 </article>
 
@@ -57,92 +55,98 @@
                         <img src="ima3.webp" alt="Alloco Traditionnel">
                         <div class="badge-prix">2000<span>F</span></div>
                     </div>
-                    <div class="texte-wrapper">
+                    <div class="texte-info">
                         <h2>Alloco Traditionnel</h2>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec une petite sauce pimentée.</p>
-                    </div>
-                </article>
-
-                <article class="plat-item">
-                    <div class="image-wrapper">
-                        <img src="ima4.webp" alt="Jollof Rice">
-                        <div class="badge-prix">4500<span>F</span></div>
-                    </div>
-                    <div class="texte-wrapper">
-                        <h2>Jollof Rice</h2>
-                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée, servi avec son poulet rôti.</p>
+                        <p>Bananes plantains frites, dorées et fondantes, servies avec sauce maison.</p>
                     </div>
                 </article>
             </div>
         </section>
 
         <section id="temoignages" class="section-temoignages">
-            <h2 class="titre-section">ILS EN PARLENT</h2>
-            <div class="grille-temoignages">
+            <h1 class="titre-section">TÉMOIGNAGES</h1>
+            <div class="conteneur-temoignages">
                 <div class="carte-avis">
-                    <img src="ima5.webp" alt="Sara Figa">
+                    <img src="ima5.webp" alt="Sara">
                     <h3>Sara Figa</h3>
-                    <p>"Une explosion de saveurs ! Le mélange d'épices est parfaitement dosé."</p>
+                    <p>"Une explosion de saveurs ! Le cadre est magnifique."</p>
                 </div>
                 <div class="carte-avis">
-                    <img src="ima6.webp" alt="Imma Tita">
+                    <img src="ima6.webp" alt="Imma">
                     <h3>Imma Tita</h3>
-                    <p>"Le cadre est magnifique et le service est impeccable. C'est devenu ma cantine."</p>
-                </div>
-                <div class="carte-avis">
-                    <img src="ima7.webp" alt="Daniel Yov">
-                    <h3>Daniel Yov</h3>
-                    <p>"Recettes traditionnelles avec une touche de modernité. Excellent !"</p>
+                    <p>"Service impeccable et plats authentiques. Je recommande !"</p>
                 </div>
             </div>
         </section>
 
         <section id="reservation" class="container-formulaire">
-            <h2 class="titre-section">PASSER UNE COMMANDE</h2>
-            <form class="form-style">
+            <h1 class="titre-section">VOTRE COMMANDE</h1>
+            <form id="booking-form" class="form-style">
                 <div class="input-row">
-                    <input type="text" placeholder="Nom et prénom" required>
-                    <select required>
-                        <option value="" disabled selected>Choisir un plat</option>
-                        <option value="spaghetti">Spaghetti Africana</option>
-                        <option value="alloco">Alloco Traditionnel</option>
-                        <option value="jollof">Jollof Rice</option>
-                    </select>
-                </div>
-                <div class="input-row">
-                    <input type="text" placeholder="Adresse de livraison" required>
+                    <input type="text" placeholder="Nom et Prénom" required>
                     <input type="tel" placeholder="Téléphone / Paiement" required>
                 </div>
-                <button type="submit" class="btn-valider">Valider la commande</button>
+                <input type="email" placeholder="Votre Email (obligatoire)" class="full-input" required>
+                <input type="text" placeholder="Adresse de livraison" class="full-input">
+                <textarea id="details-commande" placeholder="Les plats choisis dans le menu s'afficheront ici..." class="full-input" readonly></textarea>
+                <button type="submit" class="btn-valider">VALIDER LA COMMANDE</button>
             </form>
         </section>
 
         <footer id="contact" class="footer-site">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Notre Restaurant</h3>
-                    <p>Une expérience culinaire authentique au cœur de la tradition africaine.</p>
+                    <h3>CONTACT</h3>
+                    <p>📍 Kétou / Cotonou, Bénin</p>
+                    <p>✉️ contact@africafood.bj</p>
+                    <p>📞 +229 00 00 00 00</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
-                        <li><a href="#reservation">Réservation</a></li>
-                    </ul>
+                    <h3>RÉSEAUX</h3>
+                    <p>Facebook | Instagram | LinkedIn</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Contact & Support</h3>
-                    <p>📍 Cotonou, Bénin</p>
-                    <p>📞 <a href="tel:+22900000000">+229 00 00 00 00</a></p>
-                    <p>✉️ <a href="mailto:contact@africafood.bj">contact@africafood.bj</a></p>
+                    <h3>LÉGAL</h3>
+                    <p>Politique de confidentialité</p>
+                    <p>Mentions légales</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 | Réalisé par <strong>Prospère</strong></p>
+                <p>&copy; 2026 | Réalisé avec passion par <strong>Prospère</strong></p>
             </div>
         </footer>
     </main>
 
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark border-0">
+                <div class="modal-header bg-dark text-white border-0">
+                    <h5 class="modal-title">NOTRE CARTE</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">PLATS PRINCIPAUX</h6>
+                    <div class="menu-select-item"><label><input type="checkbox" value="Spaghetti Africana (3500F)"> Spaghetti Africana</label> <span>3500F</span></div>
+                    <div class="menu-select-item"><label><input type="checkbox" value="Alloco Traditionnel (2000F)"> Alloco Traditionnel</label> <span>2000F</span></div>
+                    
+                    <h6 class="fw-bold border-bottom pb-1 mb-2 mt-3">BOISSONS & DESSERTS</h6>
+                    <div class="menu-select-item"><label><input type="checkbox" value="Bissap Glacé (1000F)"> Bissap Glacé</label> <span>1000F</span></div>
+                    <div class="menu-select-item"><label><input type="checkbox" value="Degue Artisanal (1500F)"> Degue Artisanal</label> <span>1500F</span></div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-dark w-100" data-bs-dismiss="modal" onclick="validerMenu()">Ajouter à ma commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function validerMenu() {
+            const coches = document.querySelectorAll('.modal-body input:checked');
+            const liste = Array.from(coches).map(cb => cb.value);
+            document.getElementById('details-commande').value = "Plats sélectionnés : " + liste.join(', ');
+        }
+    </script>
 </body>
 </html>
