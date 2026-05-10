@@ -2,7 +2,7 @@
 :root {
     --bg-color: #000000;
     --text-primary: #FFFFFF;
-    --accent-orange: #D35400; /* Orange brûlé */
+    --accent-orange: #D35400; 
     --orange-hover: #E67E22;
     --font-heading: 'Arial Black', sans-serif;
     --font-body: 'Arial', sans-serif;
@@ -20,7 +20,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Pour la navigation fluide */
+    scroll-behavior: smooth;
 }
 
 a {
@@ -37,14 +37,14 @@ h1, h2 {
     font-family: var(--font-heading);
 }
 
-/* --- 2. HEADER ET NAVIGATION (ALIGNEMENT HORIZONTAL FORCÉ) --- */
+/* --- 2. HEADER ET NAVIGATION --- */
 .site-header {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 70px; /* Un peu plus fin pour libérer de l'espace */
+    height: 70px;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     align-items: center;
@@ -53,47 +53,36 @@ h1, h2 {
 
 .main-nav {
     width: 100%;
-    padding: 0 5px; /* Réduit pour gagner chaque pixel */
+    padding: 0 10px;
 }
 
 .nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px; /* Espace réduit entre les boutons */
+    gap: 15px; /* Espace Desktop */
 }
 
 .nav-links a {
     color: #FFFFFF;
     background-color: var(--accent-orange);
-    padding: 8px 12px;
+    padding: 8px 15px;
     border-radius: 5px;
     font-weight: bold;
-    white-space: nowrap; /* Empêche le texte de passer à la ligne dans le bouton */
-    font-size: 0.9rem; /* Taille par défaut desktop */
+    white-space: nowrap;
+    font-size: 1rem;
     transition: all 0.3s ease;
 }
 
-/* --- ADAPTATION MOBILE (POUR GARDER UNE SEULE LIGNE) --- */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 4px; /* Espace minimum entre les boutons sur mobile */
-    }
-
-    .nav-links a {
-        /* On réduit la taille du texte et du bouton pour que tout tienne */
-        font-size: 0.65rem; 
-        padding: 6px 8px;
-    }
+.nav-links a:hover {
+    background-color: var(--orange-hover);
 }
 
-/* Pour les écrans très petits (ex: iPhone SE) */
-@media (max-width: 380px) {
-    .nav-links a {
-        font-size: 0.55rem;
-        padding: 5px 6px;
-    }
+.nav-links a.active {
+    background-color: #27ae60;
+    color: #FFFFFF;
 }
+
 /* --- 3. SECTION HÉRO --- */
 .hero-section {
     position: relative;
@@ -103,7 +92,7 @@ h1, h2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 120px;
+    padding-top: 100px;
 }
 
 .hero-bg-container {
@@ -164,16 +153,7 @@ h1, h2 {
     background-color: var(--accent-orange);
 }
 
-/* Harmonisation du bouton secondaire en orange brûlé comme demandé */
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent-orange);
-}
-.btn-secondary:hover {
-    background-color: var(--accent-orange);
-}
-
-/* --- 4. GALERIE & AUTRES --- */
+/* --- 4. GALERIE --- */
 .container-galerie {
     max-width: 1000px;
     margin: 0 auto;
@@ -298,31 +278,33 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
 
-/* --- 8. RESPONSIVE DESIGN (MOBILE & TABLETTE) --- */
+/* --- 8. RESPONSIVE DESIGN (FIXÉ) --- */
 
 @media (max-width: 768px) {
-    /* Ajustement du Header */
+    /* Header - Alignement horizontal comme Desktop */
     .site-header {
-        height: auto;
-        padding: 10px 0;
+        height: 60px; /* Plus fin sur mobile */
     }
 
     .nav-links {
-        flex-wrap: wrap; /* Permet aux liens de passer à la ligne */
-        justify-content: center;
-        gap: 10px;
-        padding: 0 10px;
+        gap: 5px; /* Espace réduit entre les boutons */
     }
 
     .nav-links a {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+        font-size: 0.6rem; /* Très petit pour tout faire tenir */
+        padding: 6px 8px;
     }
 
     /* Section Héro */
     .hero-title {
-        font-size: 2.8rem; /* Titre plus petit pour mobile */
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
@@ -330,22 +312,21 @@ h1, h2 {
     }
 
     .hero-buttons {
-        flex-direction: column; /* Boutons l'un sur l'autre */
+        flex-direction: column;
         gap: 15px;
         align-items: center;
     }
 
     .btn {
-        width: 80%; /* Boutons plus larges sur mobile */
+        width: 85%;
         padding: 12px 20px;
     }
 
-    /* Galerie - On empile les éléments verticalement */
+    /* Galerie - Empilage vertical */
     .plat-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 15px;
     }
 
     .image-container {
@@ -353,12 +334,11 @@ h1, h2 {
         width: 100%;
     }
 
-    /* Témoignages - On empile aussi */
+    /* Témoignages - Empilage vertical */
     .carte-temoignage {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 15px;
     }
 
     .zone-image {
@@ -366,33 +346,20 @@ h1, h2 {
         width: 150px;
     }
 
-    /* Formulaire */
     .container-formulaire {
-        margin: 20px auto;
         padding: 40px 20px;
     }
 
-    /* Footer */
     .footer-content {
-        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-columns: 1fr;
         text-align: center;
     }
 }
 
-/* Correction pour les écrans très petits (iPhone SE, etc.) */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.2rem;
+/* Adaptation pour écrans très étroits */
+@media (max-width: 400px) {
+    .nav-links a {
+        font-size: 0.5rem;
+        padding: 4px 6px;
     }
-    
-    .titre-galerie, .titre-principal {
-        font-size: 1.8rem;
-    }
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
 }
