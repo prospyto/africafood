@@ -5,6 +5,7 @@
     --orange: #D35400;
     --orange-clair: #E67E22;
     --blanc: #FFFFFF;
+    --gris-texte: #bbb;
 }
 
 * {
@@ -12,7 +13,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none !important;
-    list-style: none !important; /* Suppression stricte des puces */
+    list-style: none !important;
 }
 
 body {
@@ -26,25 +27,28 @@ body {
 /* --- HEADER & NAVIGATION --- */
 .site-header {
     width: 100%;
-    height: 70px;
+    min-height: 70px;
     background: rgba(0, 0, 0, 0.95);
     position: fixed;
     top: 0;
-    z-index: 2000;
+     Pel-index: 2000;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid #222;
+    padding: 10px 0;
 }
 
 .nav-links {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.nav-item, .nav-btn {
+.nav-item {
     color: var(--blanc) !important;
     background: var(--orange);
     padding: 8px 15px;
@@ -53,6 +57,7 @@ body {
     font-size: 0.85rem;
     transition: 0.3s ease;
     border: none;
+    display: inline-block;
 }
 
 .nav-item:hover {
@@ -62,12 +67,13 @@ body {
 
 /* --- HERO SECTION --- */
 .hero-section {
-    height: 98vh;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-top: 70px;
 }
 
 .hero-bg-container {
@@ -79,8 +85,8 @@ body {
 .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pas de déformation */
-    opacity: 0.5;
+    object-fit: cover;
+    opacity: 0.4;
 }
 
 .hero-title {
@@ -89,12 +95,15 @@ body {
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: var(--orange);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
     margin-bottom: 30px;
     max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
@@ -103,29 +112,30 @@ body {
     justify-content: center;
 }
 
-.btn-main {
-    background: var(--orange);
-    color: white;
+.btn-main, .btn-outline {
     padding: 14px 28px;
     border-radius: 5px;
     font-weight: bold;
-    border: none;
     transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-main {
+    background: var(--orange);
+    color: white;
+    border: none;
 }
 
 .btn-outline {
     background: transparent;
     color: white;
-    padding: 14px 28px;
-    border-radius: 5px;
-    font-weight: bold;
     border: 2px solid var(--orange);
-    transition: 0.3s;
 }
 
 .btn-main:hover, .btn-outline:hover {
     background: var(--orange-clair);
     border-color: var(--orange-clair);
+    color: white;
 }
 
 /* --- GALERIE PLATS --- */
@@ -141,7 +151,6 @@ body {
     margin-bottom: 60px;
     font-size: 2.2rem;
     font-weight: bold;
-    position: relative;
 }
 
 .liste-plats {
@@ -155,7 +164,7 @@ body {
     background: #111;
     border-radius: 15px;
     overflow: hidden;
-    align-items: center;
+    align-items: stretch;
     border: 1px solid #222;
     transition: 0.3s;
 }
@@ -171,7 +180,8 @@ body {
 
 .image-box img {
     width: 100%;
-    height: 250px;
+    height: 100%;
+    min-height: 250px;
     object-fit: cover;
     display: block;
 }
@@ -236,20 +246,20 @@ body {
     object-fit: cover;
 }
 
-/* --- FORMULAIRE & INPUTS (Correction des noms de classes) --- */
+/* --- FORMULAIRE --- */
 .container-formulaire {
     max-width: 800px;
     margin: 100px auto;
     padding: 0 20px;
 }
 
-.input-row, .form-row {
+.input-row {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.input-row input, .form-row input, .full-width {
+.input-row input, .full-width {
     flex: 1;
     padding: 16px;
     border-radius: 8px;
@@ -258,10 +268,6 @@ body {
     color: #111;
     font-size: 1rem;
     outline: none;
-}
-
-.input-row input:focus, .full-width:focus {
-    border-color: var(--orange);
 }
 
 .full-width {
@@ -288,16 +294,6 @@ body {
     background: var(--orange-clair);
 }
 
-.alert-success-custom {
-    background: #1b5e20;
-    color: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
 /* --- FOOTER --- */
 .footer-site {
     background: var(--noir-leger);
@@ -321,7 +317,7 @@ body {
 
 .footer-info-list li {
     margin-bottom: 12px;
-    color: #bbb;
+    color: var(--gris-texte);
 }
 
 .footer-bottom {
@@ -333,9 +329,11 @@ body {
     color: #888;
 }
 
-/* --- POP-UP MENU --- */
+/* --- MODAL & MENU --- */
 .modal-content {
     border-radius: 15px;
+    background-color: #111 !important;
+    border: 1px solid var(--orange) !important;
 }
 
 .menu-choice-item {
@@ -355,38 +353,55 @@ body {
     color: var(--orange) !important;
 }
 
+.btn-confirm-pop {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
     .site-header {
         height: auto;
-        padding: 15px 0;
     }
-    
+
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 8px;
     }
-    
+
     .nav-item {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 6px 10px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     .plat-item {
         flex-direction: column;
-        text-align: center;
     }
 
     .image-box {
         width: 100%;
     }
 
-    .input-row, .form-row {
+    .input-row {
         flex-direction: column;
-        gap: 15px;
     }
-    
-    .hero-title {
-        font-size: 2.8rem;
+
+    .carte-temoignage {
+        width: 100%;
     }
 }
