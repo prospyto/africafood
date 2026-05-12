@@ -446,3 +446,9 @@ body {
         gap: 15px;
     }
 }
+
+
+/* --- TOUT EN BAS DU FICHIER --- */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
