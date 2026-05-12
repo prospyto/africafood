@@ -3,192 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Food - L'authenticité des saveurs africaines</title>
+    <title>Africa Food - Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="main-nav">
-            <ul class="nav-links">
-                <li><a href="#accueil" class="nav-item">Accueil</a></li>
-                <li><a href="#" class="nav-item" data-bs-toggle="modal" data-bs-target="#menuModal">Notre Menu</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#temoignages">Avis</a></li>
-                <li><a href="#reservation">Réservation</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <div class="logo">AFRICA<span>FOOD</span></div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#galerie">Plats</a></li>
+                    <li><a href="#reservation">Commander</a></li>
+                </ul>
+            </nav>
+            <button class="btn-pop" data-bs-toggle="modal" data-bs-target="#menuModal">MENU</button>
+        </div>
     </header>
 
     <main>
-        <section id="accueil" class="hero-section">
-            <div class="hero-bg-container">
-                <img src="image1.webp" alt="Background Africa Food" class="hero-image">
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">AFRICA FOOD</h1>
-                <p class="hero-subtitle">L'authenticité des saveurs africaines.<br>Un voyage culinaire au cœur de la tradition.</p>
-                <div class="hero-buttons">
-                    <a href="#reservation" class="btn-main">Réserver une table</a>
-                    <button class="btn-outline" data-bs-toggle="modal" data-bs-target="#menuModal">Passer commande</button>
-                </div>
+        <section id="accueil" class="hero">
+            <img src="image1.webp" alt="Hero" class="hero-img">
+            <div class="hero-txt">
+                <h1>AFRICA FOOD</h1>
+                <p>L'excellence culinaire au cœur de la tradition.</p>
+                <a href="#reservation" class="btn-cta">Réserver une table</a>
             </div>
         </section>
 
-        <section id="galerie" class="container-galerie">
-            <h2 class="titre-section">NOS PLATS PHARES</h2>
-            <div class="liste-plats">
-                <article class="plat-item">
-                    <div class="image-box">
-                        <img src="ima2.webp" alt="Spaghetti Africana">
-                        <div class="prix-badge">3500<span>F</span></div>
+        <section id="galerie" class="section-plats">
+            <h2 class="titre">NOS PLATS PHARES</h2>
+            <div class="grid-plats">
+                <article class="card-plat">
+                    <div class="img-wrap">
+                        <img src="ima2.webp" alt="Spaghetti">
+                        <div class="badge-p">3500F</div>
                     </div>
-                    <div class="texte-box">
+                    <div class="info-plat">
                         <h3>Spaghetti Africana</h3>
-                        <p>Sautés aux légumes frais, épices locales et morceaux de viande braisée.</p>
+                        <p>Sautés aux légumes frais et épices locales.</p>
                     </div>
                 </article>
-
-                <article class="plat-item">
-                    <div class="image-box">
-                        <img src="ima3.webp" alt="Alloco Traditionnel">
-                        <div class="prix-badge">2000<span>F</span></div>
+                <article class="card-plat">
+                    <div class="img-wrap">
+                        <img src="ima3.webp" alt="Alloco">
+                        <div class="badge-p">2000F</div>
                     </div>
-                    <div class="texte-box">
+                    <div class="info-plat">
                         <h3>Alloco Traditionnel</h3>
-                        <p>Bananes plantains frites, dorées et fondantes, servies avec sauce maison.</p>
+                        <p>Bananes plantains frites et dorées.</p>
                     </div>
                 </article>
-
-                <article class="plat-item">
-                    <div class="image-box">
-                        <img src="ima4.webp" alt="Jollof Rice">
-                        <div class="prix-badge">4500<span>F</span></div>
+                <article class="card-plat">
+                    <div class="img-wrap">
+                        <img src="ima4.webp" alt="Jollof">
+                        <div class="badge-p">4500F</div>
                     </div>
-                    <div class="texte-box">
+                    <div class="info-plat">
                         <h3>Jollof Rice</h3>
-                        <p>Le classique incontournable : riz mijoté à la sauce tomate épicée et son poulet rôti.</p>
+                        <p>Riz mijoté à la sauce tomate épicée.</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section id="temoignages" class="section-temoignages">
-            <h2 class="titre-section">TÉMOIGNAGES</h2>
-            <div class="conteneur-temoignages">
-                <div class="carte-temoignage">
-                    <img src="ima5.webp" alt="Sara Figa">
-                    <h3>Sara Figa</h3>
-                    <p>"Une explosion de saveurs ! On sent vraiment le goût du pays."</p>
-                </div>
-                <div class="carte-temoignage">
-                    <img src="ima6.webp" alt="Imma Tita">
-                    <h3>Imma Tita</h3>
-                    <p>"Le cadre est magnifique et le service impeccable. Ma cantine préférée."</p>
-                </div>
-                <div class="carte-temoignage">
-                    <img src="ima7.webp" alt="Daniel Yov">
-                    <h3>Daniel Yov</h3>
-                    <p>"Enfin un restaurant qui respecte les recettes traditionnelles. Bravo !"</p>
+        <section id="temoignages" class="section-avis">
+            <h2 class="titre">TEMOIGNAGES</h2>
+            <div class="avis-wrapper">
+                <div class="avis-track">
+                    <div class="avis-card"><img src="ima5.webp" alt="1"><h3>Sara Figa</h3><p>"Un régal !"</p></div>
+                    <div class="avis-card"><img src="ima6.webp" alt="2"><h3>Imma Tita</h3><p>"Incroyable."</p></div>
+                    <div class="avis-card"><img src="ima7.webp" alt="3"><h3>Daniel Yov</h3><p>"Le meilleur."</p></div>
                 </div>
             </div>
         </section>
 
-        <section id="reservation" class="container-formulaire">
-            <h2 class="titre-section">RÉSERVATION & COMMANDE</h2>
-            
-            <div id="success-message" class="alert-success-custom" style="display: none;">
-                ✅ Votre demande a été reçue avec succès ! Nous vous recontacterons vite.
-            </div>
-
-            <form id="orderForm" class="form-style" onsubmit="handleFormSubmit(event)">
-                <div class="input-row">
-                    <input type="text" placeholder="Nom et Prénom" required>
-                    <input type="email" placeholder="Votre Email (Obligatoire)" required>
+        <section id="reservation" class="section-form">
+            <h2 class="titre">RESERVATION</h2>
+            <div id="msg-ok" class="success-box" style="display:none">✅ Message bien reçu !</div>
+            <form id="formOrder" onsubmit="envoyer(event)">
+                <div class="f-row">
+                    <input type="text" placeholder="Nom" required>
+                    <input type="email" placeholder="Email" required>
                 </div>
-                <div class="input-row">
-                    <input type="tel" placeholder="Téléphone / Paiement" required>
-                    <input type="text" placeholder="Adresse de livraison" required>
+                <div class="f-row">
+                    <input type="tel" placeholder="Téléphone" required>
+                    <input type="text" placeholder="Adresse" required>
                 </div>
-                <textarea id="order-details" placeholder="Détails de votre commande (choisissez dans le menu)..." class="full-width"></textarea>
-                <button type="submit" class="btn-submit">ENVOYER MA DEMANDE</button>
+                <textarea id="output-menu" placeholder="Votre commande..."></textarea>
+                <button type="submit" class="btn-submit">ENVOYER</button>
             </form>
         </section>
 
-        <footer id="contact" class="footer-site">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="footer-title">AFRICA FOOD</h3>
-                    <p>L'authenticité des saveurs africaines au cœur de la tradition.</p>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">CONTACTS</h3>
-                    <ul class="footer-info-list">
-                        <li>📍 Haie Vive, Cotonou, Bénin</li>
-                        <li>📞 +229 00 00 00 00</li>
-                        <li>✉️ contact@africafood.bj</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">HORAIRES</h3>
-                    <ul class="footer-info-list">
-                        <li>Lun-Ven: 11h - 23h</li>
-                        <li>Sam-Dim: 12h - 00h</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-title">SUIVEZ-NOUS</h3>
-                    <div class="social-links">
-                        <a href="#">Facebook</a> | <a href="#">Instagram</a>
-                    </div>
-                </div>
+        <footer class="footer">
+            <div class="f-grid">
+                <div><h3>AFRICA FOOD</h3><p>Cotonou, Bénin</p></div>
+                <div><h3>CONTACT</h3><p>contact@africafood.bj</p><p>+229 00000000</p></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 | Réalisé avec passion par <strong>Prospère</strong></p>
-            </div>
+            <p class="copy">© 2026 | Réalisé par <strong>Prospère</strong></p>
         </footer>
     </main>
 
     <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white border border-warning">
-                <div class="modal-header border-secondary">
-                    <h5 class="modal-title text-orange">VOTRE MENU</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header"><h5>CHOISISSEZ</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
                 <div class="modal-body">
-                    <h6 class="text-secondary small mb-3">PLATS PRINCIPAUX</h6>
-                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Spaghetti Africana"> Spaghetti Africana</label><span class="price-txt">3500F</span></div>
-                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Alloco Traditionnel"> Alloco Traditionnel</label><span class="price-txt">2000F</span></div>
-                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Jollof Rice"> Jollof Rice</label><span class="price-txt">4500F</span></div>
-                    <h6 class="text-secondary small mt-4 mb-3">BOISSONS</h6>
-                    <div class="menu-choice-item"><label><input type="checkbox" class="chk-plat" value="Bissap Glacé"> Bissap Glacé</label><span class="price-txt">1000F</span></div>
+                    <div class="item-sel"><label><input type="checkbox" class="c-plat" value="Spaghetti"> Spaghetti</label><span>3500F</span></div>
+                    <div class="item-sel"><label><input type="checkbox" class="c-plat" value="Alloco"> Alloco</label><span>2000F</span></div>
+                    <div class="item-sel"><label><input type="checkbox" class="c-plat" value="Jollof"> Jollof</label><span>4500F</span></div>
                 </div>
-                <div class="modal-footer border-secondary">
-                    <button class="btn-confirm-pop w-100" onclick="finalizeOrder()" data-bs-dismiss="modal">Confirmer et Commander</button>
-                </div>
+                <div class="modal-footer"><button class="btn-cta w-100" onclick="valider()" data-bs-dismiss="modal">Valider</button></div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Gestion de la Pop-up
-        function finalizeOrder() {
-            let selected = [];
-            document.querySelectorAll('.chk-plat:checked').forEach(el => selected.push(el.value));
-            if (selected.length > 0) {
-                document.getElementById('order-details').value = "Commande : " + selected.join(', ');
-                document.getElementById('reservation').scrollIntoView({ behavior: 'smooth' });
-            }
+        function valider() {
+            let choix = [];
+            document.querySelectorAll('.c-plat:checked').forEach(i => choix.push(i.value));
+            document.getElementById('output-menu').value = "Commande : " + choix.join(', ');
+            document.getElementById('reservation').scrollIntoView({behavior: 'smooth'});
         }
-
-        // Gestion du message de succès
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
-            document.getElementById('orderForm').style.display = 'none'; // Cache le formulaire
-            document.getElementById('success-message').style.display = 'block'; // Montre le message
+        function envoyer(e) {
+            e.preventDefault();
+            document.getElementById('formOrder').style.display = 'none';
+            document.getElementById('msg-ok').style.display = 'block';
         }
     </script>
 </body>
