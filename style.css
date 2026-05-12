@@ -30,25 +30,41 @@ body {
 /* --- HEADER & NAVIGATION --- */
 /* --- AJUSTEMENT DANS LE BLOC @media (max-width: 768px) --- */
 @media (max-width: 768px) {
-    
-    .site-header {
-        flex-direction: row; /* On force le maintien sur une ligne */
-        justify-content: space-between; /* Le logo à gauche, le menu à droite */
-        align-items: center;
-        padding: 10px 4%; /* Réduction des marges sur les côtés */
-        height: 60px; /* On fixe une hauteur plus petite pour le mobile */
-    }
+/* --- HEADER RÉVISÉ (SANS LOGO) --- */
+.site-header {
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre le menu horizontalement */
+    border-bottom: 1px solid #222;
+    padding: 0 15px;
+}
 
-    .logo-restaurant {
-        height: 35px; /* On réduit un peu la taille du logo pour gagner de la place */
-        width: auto;
-    }
+.nav-links {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
 
-    .nav-links {
-        display: flex;
-        gap: 5px; /* Espace très réduit entre les liens */
-    }
-
+.nav-item {
+    color: var(--blanc) !important;
+    background: var(--orange);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: 0.3s ease;
+    white-space: nowrap; /* Empêche le texte de se couper */
+}
     .nav-item {
         font-size: 0.7rem; /* Texte plus petit pour que tout tienne */
         padding: 5px 8px;
