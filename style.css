@@ -28,21 +28,36 @@ body {
 }
 
 /* --- HEADER & NAVIGATION --- */
-.site-header {
-    width: 100%;
-    min-height: 70px;
-    /* Rendu transparent avec flou pour voir le défilement */
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position: fixed;
-    top: 0;
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Écarte le logo et le menu */
-    padding: 10px 5%;
-    border-bottom: 1px solid #222;
+/* --- AJUSTEMENT DANS LE BLOC @media (max-width: 768px) --- */
+@media (max-width: 768px) {
+    
+    .site-header {
+        flex-direction: row; /* On force le maintien sur une ligne */
+        justify-content: space-between; /* Le logo à gauche, le menu à droite */
+        align-items: center;
+        padding: 10px 4%; /* Réduction des marges sur les côtés */
+        height: 60px; /* On fixe une hauteur plus petite pour le mobile */
+    }
+
+    .logo-restaurant {
+        height: 35px; /* On réduit un peu la taille du logo pour gagner de la place */
+        width: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 5px; /* Espace très réduit entre les liens */
+    }
+
+    .nav-item {
+        font-size: 0.7rem; /* Texte plus petit pour que tout tienne */
+        padding: 5px 8px;
+        white-space: nowrap; /* Empêche le texte de revenir à la ligne */
+    }
+
+    /* Optionnel : Masquer certains liens sur mobile s'il y en a trop */
+    /* .nav-links li:nth-child(3), .nav-links li:nth-child(4) { display: none; } */
+}
 }
 
 .logo-restaurant {
