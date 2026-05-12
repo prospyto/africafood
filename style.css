@@ -463,7 +463,41 @@ body {
 }
 
 
-/* --- TOUT EN BAS DU FICHIER --- */
 @media (max-width: 768px) {
     .site-header {
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: row !important; /* Force l'alignement horizontal */
+        justify-content: space-between !important; /* Logo à gauche, menu à droite */
+        align-items: center !important;
+        padding: 5px 10px !important;
+        height: 65px !important;
+        flex-wrap: nowrap !important; /* Empêche absolument le passage à la ligne */
+    }
+
+    .logo-restaurant {
+        height: 40px !important; /* Réduit la taille pour laisser de la place */
+        width: auto;
+        flex-shrink: 0; /* Empêche le logo de s'écraser */
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+        overflow-x: auto; /* Permet de défiler horizontalement si le menu est trop long */
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-item {
+        font-size: 11px !important; /* Texte plus petit pour le mobile */
+        padding: 5px 8px !important;
+        display: inline-block;
+    }
+}
